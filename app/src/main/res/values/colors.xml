@@ -30,6 +30,13 @@
     <color name="main_yellow2_text">#FFD260</color>
     <color name="main_yellow_dark_mode">#FFF285</color>
 
+    <color name="green01">#2db400</color>
+    <color name="green02">#60c141</color>
+    <color name="green03">#85ce69</color>
+    <color name="green04">#a5db8e</color>
+
+
+
     <color name="main_purple">#9180FF</color>
     <color name="main_purple_dark_mode">#614DDC</color>
 

@@ -385,6 +385,21 @@
         <item name="android:padding">16dp</item>
     </style>
 
+    <style name="Theme.AppCompat.Yellow.Alert.TextView.Button.Positive" parent="Theme.AppCompat.Alert.Padding.Radius16">
+        <item name="android:background">@drawable/custom_yellow_radius16</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Theme.AppCompat.TextView.Notification.Button.Positive" parent="Theme.AppCompat.TextView.Regular.Black.Size16">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
 
 
     <style name="Theme.AppCompat.TextView.Home.Recent.Title" parent="Theme.AppCompat.TextView.SemiBold.Black.Size18"/>
