@@ -6,20 +6,28 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
+
+// local.properties 사용을 위함
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     namespace 'com.o2.check_bookmark_android'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.o2.check_bookmark_android"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // url 변수 지정
+        buildConfigField "String", "GOOGLE_LOGIN_CLIENT_ID", properties['google.login.clientId']
     }
 
     buildTypes {
