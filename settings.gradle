@@ -23,7 +23,7 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-rootProject.name = "Run-Eat"
+rootProject.name = "check_bookmark_android"
 include ':app'
 include ':data'
 include ':domain'

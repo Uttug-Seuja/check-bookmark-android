@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="check_bookmark_android.app" target="11" />
-      <module name="check_bookmark_android.data" target="11" />
+      <module name="Run-Eat.app" target="11" />
+      <module name="Run-Eat.data" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
