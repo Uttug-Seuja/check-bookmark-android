@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="holder"
+            type="com.o2.domain.model.BookmarkStack" />
+
+        <variable
+            name="eventListener"
+            type="com.o2.check_bookmark_android.ui.home.HomeActionHandler" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            style="@style/Theme.AppCompat.TextView.Notification.Button.Positive"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="어린왕자(생택취페리 탄생 120주년 블라블라)"
+            android:background="@drawable/custom_green02_radius16"/>
+
+        <TextView
+            style="@style/Theme.AppCompat.TextView.Notification.Button.Positive"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="붕대 감기(윤이형 소설)"
+            android:background="@drawable/custom_green03_radius16"/>
+
+        <TextView
+            style="@style/Theme.AppCompat.TextView.Notification.Button.Positive"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_marginEnd="15dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="초록빛 힐링의 섬 아일랜드에 멈추다 하하하하"
+            android:background="@drawable/custom_green04_radius16"/>
+        <TextView
+            style="@style/Theme.AppCompat.TextView.Notification.Button.Positive"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:minHeight="50dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="호모데우스(미래의 역사)"
+            android:background="@drawable/custom_green01_radius16"/>
+    </LinearLayout>
+
+</layout>
+
