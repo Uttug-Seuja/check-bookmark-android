@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/registerFragment">
+
+    <action
+        android:id="@+id/action_main_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.o2.check_bookmark_android.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.o2.check_bookmark_android.ui.register.RegisterFragment"
+        android:label="RegisterFragment"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/action_registerFragment_to_setProfileFragment"
+            app:destination="@id/setProfileFragment"
+           />
+    </fragment>
+
+    <fragment
+        android:id="@+id/setProfileFragment"
+        android:name="com.o2.check_bookmark_android.ui.setProfile.SetProfileFragment"
+        android:label="SetProfileFragment"
+        tools:layout="@layout/fragment_set_profile">
+
+        <action
+            android:id="@+id/action_setProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+</navigation>
