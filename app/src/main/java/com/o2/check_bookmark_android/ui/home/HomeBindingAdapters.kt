@@ -60,6 +60,12 @@ fun RecyclerView.bindBookmarkStackAdapter(itemList: BookmarkStacks) {
     }
 }
 
+@BindingAdapter("textVisible")
+fun TextView.bindTextVisible(text: String) {
+    if (text != "") this.visibility = View.VISIBLE
+    else this.visibility = View.GONE
+}
+
 @BindingAdapter("editTextCountColorChange")
 fun TextView.bindEditTextCountColorChange(textLength: Int) {
     this.text = "$textLength/200"
