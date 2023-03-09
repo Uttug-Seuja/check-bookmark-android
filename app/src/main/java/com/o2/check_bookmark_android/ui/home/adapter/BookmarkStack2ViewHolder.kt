@@ -1,16 +1,17 @@
-package com.depromeet.knockknock.ui.alarmcreate.adapter
+package com.o2.check_bookmark_android.ui.home.adapter
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
-import com.depromeet.domain.model.RecommendMessage
-import com.depromeet.knockknock.databinding.ItemRecyclerRecommendationMessageBinding
+import com.o2.check_bookmark_android.databinding.HolderBookmarkStackBinding
+import com.o2.domain.model.BookmarkStack
 
 class BookmarkStack2ViewHolder(
-    private val binding: ItemRecyclerRecommendationMessageBinding
+    private val binding: HolderBookmarkStackBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: RecommendMessage) {
+    fun bind(item: BookmarkStack) {
         binding.apply {
-            model = item
+            holder = item
             executePendingBindings()
         }
     }
