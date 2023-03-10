@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.o2.check_bookmark_android.ui.bookmarkcreate.BookmarkCreateViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_habit_create_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="24dp"
+                android:layout_marginStart="20dp"
+                android:text="@string/bookmark_create_title"
+                android:textAppearance="@style/Typography.Heading"
+                android:textColor="@color/gray_800"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_habit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/bookmark_create_bookmark_title"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_header" />
+
+        <TextView
+            android:id="@+id/tv_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_rect_gray100_r10"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="😄"
+            android:textColor="#FF000000"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_habit_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_name" />
+
+        <EditText
+            android:id="@+id/et_habit_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/selector_input_field"
+            android:hint="@string/bookmark_create_bookmark_title_hint"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="15"
+            android:paddingVertical="13dp"
+            android:paddingStart="16dp"
+            android:textAppearance="@style/Typography.Body1"
+            android:textColor="@color/gray_800"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_emoji"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_emoji"
+            app:layout_constraintTop_toTopOf="@+id/tv_emoji"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/tv_habit_title_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="0/15"
+            android:textAppearance="@style/Typography.Body4"
+            android:textColor="@color/gray_500"
+            app:layout_constraintBottom_toBottomOf="@+id/et_habit_title"
+            app:layout_constraintEnd_toEndOf="@+id/et_habit_title"
+            app:layout_constraintTop_toTopOf="@+id/et_habit_title" />
+
+
+        <TextView
+            android:id="@+id/tv_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/bookmark_create_summary_title"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="@+id/tv_emoji"
+            app:layout_constraintTop_toBottomOf="@+id/et_habit_title" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_notification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_notification"
+            app:layout_constraintTop_toBottomOf="@+id/tv_notification">
+
+            <EditText
+                android:id="@+id/tv_notification_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_input_field"
+                android:hint="@string/bookmark_create_page_hint"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="15"
+                android:paddingVertical="13dp"
+                android:paddingStart="16dp"
+                android:textAppearance="@style/Typography.Body1"
+                android:textColor="@color/gray_800"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="0/4"
+                android:textAppearance="@style/Typography.Body4"
+                android:textColor="@color/gray_500"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_notification_time"
+                app:layout_constraintEnd_toEndOf="@+id/tv_notification_time"
+                app:layout_constraintTop_toTopOf="@+id/tv_notification_time" />
+
+            <EditText
+                android:id="@+id/et_notification_content"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/selector_input_field"
+                android:gravity="top"
+                android:hint="@string/bookmark_create_summary_hint"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="5dp"
+                android:maxLength="25"
+                android:maxLines="2"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="15dp"
+                android:textAppearance="@style/Typography.Paragraph1"
+                android:textColor="@color/gray_800"
+                app:layout_constraintEnd_toEndOf="@+id/tv_notification_time"
+                app:layout_constraintStart_toStartOf="@+id/tv_notification_time"
+                app:layout_constraintTop_toBottomOf="@+id/tv_notification_time" />
+
+            <TextView
+                android:id="@+id/tv_notification_content_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="15dp"
+                android:text="0/50"
+                android:textAppearance="@style/Typography.Body4"
+                android:textColor="@color/gray_500"
+                app:layout_constraintBottom_toBottomOf="@+id/et_notification_content"
+                app:layout_constraintEnd_toEndOf="@+id/et_notification_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/bookmark_create_color_title"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="@+id/tv_notification"
+            app:layout_constraintTop_toBottomOf="@+id/container_notification" />
+
+        <RadioGroup
+            android:id="@+id/group_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_color">
+
+            <RadioButton
+                android:id="@+id/rb_green"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_green_color_button"
+                android:button="@null"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rb_blue"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_blue_color_button"
+                android:button="@null" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_pink_color_button"
+                android:button="@null" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_blue_color_button"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_pink"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_pink_color_button"
+                android:button="@null" />
+        </RadioGroup>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/send_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/green03"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/some_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/ok"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
