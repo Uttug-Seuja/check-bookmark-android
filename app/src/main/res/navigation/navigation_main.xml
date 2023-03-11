@@ -25,6 +25,56 @@
     </fragment>
 
     <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="com.o2.check_bookmark_android.ui.bookmarks.BookmarksFragment"
+        android:label="BookmarksFragment"
+        tools:layout="@layout/fragment_bookmarks"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true">
+
+        <action
+            android:id="@+id/action_bookmarksFragment_to_bookMarkCreateFragment"
+            app:destination="@id/bookMarkCreateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/booksFragment"
+        android:name="com.o2.check_bookmark_android.ui.books.BooksFragment"
+        android:label="BookmarkFragment"
+        tools:layout="@layout/fragment_books"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true">
+
+        <action
+            android:id="@+id/action_booksFragment_to_bookCreateFragment"
+            app:destination="@id/bookCreateFragment" />
+        <action
+            android:id="@+id/action_booksFragment_to_bookmarksFragment"
+            app:destination="@id/bookmarksFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookMarkCreateFragment"
+        android:name="com.o2.check_bookmark_android.ui.bookmarkcreate.BookmarkCreateFragment"
+        android:label="BookMarkCreateFragment"
+        tools:layout="@layout/fragment_bookmark_create"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookCreateFragment"
+        android:name="com.o2.check_bookmark_android.ui.bookcreate.BookCreateFragment"
+        android:label="BookCreateFragment"
+        tools:layout="@layout/fragment_book_create"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+    <fragment
         android:id="@+id/registerFragment"
         android:name="com.o2.check_bookmark_android.ui.register.RegisterFragment"
         android:label="RegisterFragment"
@@ -52,7 +102,7 @@
 
     <fragment
         android:id="@+id/setProfileFragment"
-        android:name="com.o2.check_bookmark_android.ui.setProfile.SetProfileFragment"
+        android:name="com.o2.check_bookmark_android.ui.setprofile.SetProfileFragment"
         android:label="SetProfileFragment"
         tools:layout="@layout/fragment_set_profile">
 
