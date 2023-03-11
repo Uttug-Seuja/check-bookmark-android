@@ -1,20 +1,18 @@
 package com.o2.check_bookmark_android.ui.home
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.o2.check_bookmark_android.ui.books.adapter.BooksAdapter
 import com.o2.check_bookmark_android.ui.home.adapter.BookmarkStack2Adapter
 import com.o2.domain.model.BookmarkStacks
 

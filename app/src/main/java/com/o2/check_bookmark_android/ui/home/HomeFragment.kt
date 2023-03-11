@@ -4,6 +4,7 @@ import androidx.fragment.app.viewModels
 import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.databinding.FragmentHomeBinding
+import com.o2.check_bookmark_android.ui.books.adapter.BooksAdapter
 import com.o2.check_bookmark_android.ui.home.adapter.BookmarkStack2Adapter
 import dagger.hilt.android.AndroidEntryPoint
 
