@@ -1,4 +1,4 @@
-package com.o2.check_bookmark_android.ui.setProfile
+package com.o2.check_bookmark_android.ui.setprofile
 
 interface SetProfileActionHandler {
     fun onProfileImageSetClicked()

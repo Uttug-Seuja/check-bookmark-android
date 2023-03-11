@@ -1,4 +1,4 @@
-package com.o2.check_bookmark_android.ui.setProfile
+package com.o2.check_bookmark_android.ui.setprofile
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.o2.check_bookmark_android.ui.setProfile.bottom.EditProfileImageBottomSheet
+import com.o2.check_bookmark_android.ui.setprofile.bottom.EditProfileImageBottomSheet
 import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.databinding.FragmentSetProfileBinding

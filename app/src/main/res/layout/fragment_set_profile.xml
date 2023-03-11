@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.o2.check_bookmark_android.ui.setProfile.SetProfileViewModel" />
+            type="com.o2.check_bookmark_android.ui.setprofile.SetProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -285,7 +285,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/green02"
+            android:backgroundTint="@color/green03"
             android:onClick="@{() -> viewmodel.onSelectionDoneClicked()}"
             app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"

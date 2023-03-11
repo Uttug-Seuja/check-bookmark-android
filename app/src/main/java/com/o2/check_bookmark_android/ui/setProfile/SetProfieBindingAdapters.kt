@@ -1,10 +1,9 @@
-package com.o2.check_bookmark_android.ui.setProfile
+package com.o2.check_bookmark_android.ui.setprofile
 
 import android.graphics.Color
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.card.MaterialCardView
