@@ -1,4 +1,4 @@
-package com.o2.check_bookmark_android.ui.setProfile.bottom
+package com.o2.check_bookmark_android.ui.setprofile.bottom
 
 import android.app.Dialog
 import android.os.Bundle
