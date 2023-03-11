@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.o2.check_bookmark_android.ui.bookmarkdetail.BookmarkDetailViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_book_create_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="24dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/suit_bold"
+                android:text="어떤 책을 읽으시나요?"
+                android:textColor="@color/gray_800"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:text="책 제목"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_header" />
+
+
+        <EditText
+            android:id="@+id/et_book_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/selector_input_field"
+            android:hint="책 제목을 입력해주세요"
+            android:inputType="text"
+            android:maxLength="15"
+            android:paddingVertical="13dp"
+            android:paddingStart="16dp"
+            android:textAppearance="@style/Typography.Body1"
+            android:textColor="@color/gray_800"
+            app:layout_constraintTop_toBottomOf="@+id/tv_book_name" />
+
+
+        <TextView
+            android:id="@+id/tv_book_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="책 저자"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_book_title" />
+
+
+        <EditText
+            android:id="@+id/et_book_author_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/selector_input_field"
+            android:hint="책 저자를 입력해주세요"
+            android:inputType="text"
+            android:maxLength="15"
+            android:paddingVertical="13dp"
+            android:paddingStart="16dp"
+            android:textAppearance="@style/Typography.Body1"
+            android:textColor="@color/gray_800"
+            app:layout_constraintTop_toBottomOf="@+id/tv_book_author_name"
+            tools:layout_editor_absoluteX="0dp" />
+
+
+        <TextView
+            android:id="@+id/tv_book_publisher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="출판사"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_book_author_title" />
+
+        <EditText
+            android:id="@+id/et_book_publisherr_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/selector_input_field"
+            android:hint="출판사를 입력해주세요"
+            android:inputType="text"
+            android:maxLength="15"
+            android:paddingVertical="13dp"
+            android:paddingStart="16dp"
+            android:textAppearance="@style/Typography.Body1"
+            android:textColor="@color/gray_800"
+            app:layout_constraintTop_toBottomOf="@+id/tv_book_publisher_name"
+            tools:layout_editor_absoluteX="20dp" />
+
+
+        <TextView
+            android:id="@+id/tv_book_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="총 페이지 수"
+            android:textAppearance="@style/Typography.SubTitle"
+            android:textColor="@color/gray_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_book_publisherr_title" />
+
+        <EditText
+            android:id="@+id/et_book_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/selector_input_field"
+            android:hint="총 페이지 수를 입력해주세요"
+            android:inputType="number"
+            android:maxLength="15"
+            android:paddingVertical="13dp"
+            android:paddingStart="16dp"
+            android:textAppearance="@style/Typography.Body1"
+            android:textColor="@color/gray_800"
+            app:layout_constraintTop_toBottomOf="@+id/tv_book_page"
+            tools:layout_editor_absoluteX="24dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/send_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/green03"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/some_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:text="완료"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
