@@ -27,6 +27,14 @@
 
     <string name="alarm_settings_not_receive_push_at_night">야간 푸시알림</string>
     <string name="alarm_settings_not_receive_push_at_night_description">오후 9시부터 다음날 오전 8시까지의 알림</string>
+    <string name="bookmark_create_title">오늘은 어디까지 읽으셨나요?</string>
+    <string name="bookmark_create_bookmark_title_hint">책갈피 제목을 입력해주세요</string>
+    <string name="bookmark_create_bookmark_title">제목</string>
+    <string name="bookmark_create_summary_title">줄거리</string>
+    <string name="bookmark_create_page_hint">오늘 읽은 마지막 페이지를 입력해주세요</string>
+    <string name="bookmark_create_summary_hint">책의 줄거리를 입력해주세요</string>
+    <string name="bookmark_create_color_title">색상</string>
+    <string name="ok">완료</string>
 
 
 </resources>
