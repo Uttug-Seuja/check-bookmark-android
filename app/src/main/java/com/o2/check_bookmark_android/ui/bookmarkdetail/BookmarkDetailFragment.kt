@@ -23,13 +23,21 @@ class BookmarkDetailFragment : BaseFragment<FragmentBookmarkDetailBinding, Bookm
         binding.apply {
             this.vm = viewModel
             this.lifecycleOwner = viewLifecycleOwner
-            this.ivClose.setOnClickListener { navController.popBackStack() }
         }
         exception = viewModel.errorEvent
         setupEvent()
+        initToolbar()
     }
 
     private fun setupEvent() {
+    }
+
+    private fun initToolbar() {
+        with(binding.toolbar) {
+            // 뒤로가기 버튼
+            this.setNavigationIcon(R.drawable.ic_allow_back)
+            this.setNavigationOnClickListener { navController.popBackStack() }
+        }
     }
 
     override fun initDataBinding() {

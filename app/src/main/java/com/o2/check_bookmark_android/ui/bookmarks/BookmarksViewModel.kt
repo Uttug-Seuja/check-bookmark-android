@@ -94,6 +94,12 @@ class BookmarksViewModel @Inject constructor(
         }
     }
 
+    override fun onBookmarkDetailClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BookmarksNavigationAction.NavigateToBookmarkDetail)
+        }
+    }
+
     override fun onToggleFab() {
 
     }

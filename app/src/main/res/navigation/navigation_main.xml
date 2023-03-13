@@ -34,7 +34,10 @@
 
         <action
             android:id="@+id/action_bookmarksFragment_to_bookMarkCreateFragment"
-            app:destination="@id/bookMarkCreateFragment" />
+            app:destination="@id/bookmarkCreateFragment" />
+        <action
+            android:id="@+id/action_bookmarksFragment_to_bookmarkDetailFragment"
+            app:destination="@id/bookmarkDetailFragment" />
     </fragment>
 
     <fragment
@@ -55,10 +58,20 @@
     </fragment>
 
     <fragment
-        android:id="@+id/bookMarkCreateFragment"
+        android:id="@+id/bookmarkCreateFragment"
         android:name="com.o2.check_bookmark_android.ui.bookmarkcreate.BookmarkCreateFragment"
-        android:label="BookMarkCreateFragment"
+        android:label="BookmarkCreateFragment"
         tools:layout="@layout/fragment_bookmark_create"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookmarkDetailFragment"
+        android:name="com.o2.check_bookmark_android.ui.bookmarkdetail.BookmarkDetailFragment"
+        android:label="BookmarkDetailFragment"
+        tools:layout="@layout/fragment_bookmark_detail"
         app:popUpTo="@id/navigation_graph"
         app:popUpToInclusive="true">
 

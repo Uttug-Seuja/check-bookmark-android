@@ -1,5 +1,6 @@
 package com.o2.check_bookmark_android.ui.bookmarks
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.o2.check_bookmark_android.R
@@ -38,6 +39,9 @@ class BookmarksFragment : BaseFragment<FragmentBookmarksBinding, BookmarksViewMo
                 when (it) {
                     is BookmarksNavigationAction.NavigateToBookmarkCreate -> navigate(
                         BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment()
+                    )
+                    is BookmarksNavigationAction.NavigateToBookmarkDetail -> navigate(
+                        BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment()
                     )
                     else -> {}
                 }
