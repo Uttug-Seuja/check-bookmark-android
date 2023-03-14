@@ -15,6 +15,11 @@ class BooksViewHolder(
         binding.apply {
             holder = item
             executePendingBindings()
+
+            pbBookListPercent.max = 150
+            pbBookListPercent.progress = 50
+            tvBookListPercent.text = ((50 / 150f * 100).toInt()).toString()
+
         }
     }
 }
