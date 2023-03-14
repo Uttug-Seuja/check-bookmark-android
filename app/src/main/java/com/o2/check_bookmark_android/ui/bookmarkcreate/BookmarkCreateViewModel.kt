@@ -11,6 +11,7 @@ class BookmarkCreateViewModel @Inject constructor(
 ) : BaseViewModel(), BookmarkCreateActionHandler {
 
     private val TAG = "BookCreateViewModel"
+    var isCreated = MutableStateFlow<Boolean>(false)
 
 
     private val _bookmarkStackEvent: MutableStateFlow<BookmarkStacks> =

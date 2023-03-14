@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="24dp"
                 android:layout_marginStart="20dp"
-                android:text="@string/bookmark_create_title"
+                BookmarkTitleTextChange = "@{vm.isCreated()}"
                 android:textAppearance="@style/Typography.Heading"
                 android:textColor="@color/gray_800"
                 app:layout_constraintBottom_toBottomOf="parent"

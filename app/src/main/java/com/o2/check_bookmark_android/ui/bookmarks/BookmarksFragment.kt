@@ -38,7 +38,7 @@ class BookmarksFragment : BaseFragment<FragmentBookmarksBinding, BookmarksViewMo
             viewModel.navigationEvent.collectLatest {
                 when (it) {
                     is BookmarksNavigationAction.NavigateToBookmarkCreate -> navigate(
-                        BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment()
+                        BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment(false)
                     )
                     is BookmarksNavigationAction.NavigateToBookmarkDetail -> navigate(
                         BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment()
