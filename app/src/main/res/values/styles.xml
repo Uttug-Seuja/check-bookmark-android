@@ -563,5 +563,30 @@
     </style>
 
 
+    <!-- Alert 관련 -->
+
+
+    <style name="Theme.AppCompat.Yellow.Alert.TextView.Button.Negative" parent="Theme.AppCompat.Alert.Padding.Radius16">
+        <item name="android:background">@drawable/custom_backgroundwhite_radius16</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/gray08</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="Theme.AppCompat.Red.Alert.TextView.Button.Negative" parent="Theme.AppCompat.Alert.Padding.Radius16">
+        <item name="android:background">@drawable/custom_backgroundwhite_radius16</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/gray08</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Theme.AppCompat.Red.Alert.TextView.Button.Positive" parent="Theme.AppCompat.Alert.Padding.Radius16">
+        <item name="android:background">@drawable/custom_red_corner_radius16</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/system_red_caution</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 
 </resources>
