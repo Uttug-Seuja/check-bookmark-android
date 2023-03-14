@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/edit_btn"
             style="@style/Theme.AppCompat.TextView.Bookmark.Edit.Button"
-            onSingleClick="@{() -> vm.onBookCreateClicked()}"
+            onSingleClick="@{() -> vm.onBookCreateClicked(false)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="책 등록"

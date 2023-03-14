@@ -27,14 +27,17 @@ fun CardView.bindImgLoadVisible(uri: String) {
     else this.visibility = View.GONE
 }
 
-@BindingAdapter("deleteTextVisible")
-fun TextView.bindDeleteTextVisible(text: Int) {
-    if (text == 0) {
-        this.setTextColor(Color.parseColor("#BDBDBD"))
-        this.isClickable = false
+@BindingAdapter("bookTitleTextChange")
+fun TextView.bindBookTitleTextChange(isCreated: Boolean) {
+    /**
+     * 등록하기 - 어떤 책을 읽으시나요?
+     * 수정하기 - 책 내용을 수정하시나요?
+     * */
+    if (isCreated) {
+        this.text = "책 내용을 수정하시나요?"
     } else {
-        this.setTextColor(Color.parseColor("#212121"))
-        this.isClickable = true
+        this.text = "어떤 책을 읽으시나요?"
+
     }
 }
 

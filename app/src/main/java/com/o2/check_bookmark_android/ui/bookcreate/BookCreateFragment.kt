@@ -2,6 +2,7 @@ package com.o2.check_bookmark_android.ui.bookcreate
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.databinding.FragmentBookCreateBinding
@@ -19,6 +20,7 @@ class BookCreateFragment : BaseFragment<FragmentBookCreateBinding, BookCreateVie
 
     override val viewModel: BookCreateViewModel by viewModels()
     private val navController by lazy { findNavController() }
+    private val args: BookCreateFragmentArgs by navArgs()
 
     override fun initStartView() {
         binding.apply {
@@ -28,6 +30,7 @@ class BookCreateFragment : BaseFragment<FragmentBookCreateBinding, BookCreateVie
         }
         exception = viewModel.errorEvent
         setupEvent()
+        viewModel.isCreated.value = args.isCreated
     }
 
     private fun setupEvent() {
