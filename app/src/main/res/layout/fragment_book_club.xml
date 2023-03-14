@@ -29,7 +29,6 @@
             style="@style/Theme.AppCompat.TextView.Bookmark.Edit.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="책 등록"
             app:layout_constraintBottom_toBottomOf="@id/toolbar"
             app:layout_constraintEnd_toEndOf="@id/toolbar"
             app:layout_constraintTop_toTopOf="@id/toolbar" />
@@ -42,10 +41,15 @@
             android:orientation="vertical"
             android:overScrollMode="never"
             app:booksAdapter="@{vm.booksEvent}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            tools:listitem="@layout/holder_book" />
+            app:layout_constraintVertical_bias="1.0"
+            app:spanCount="4"
+            tools:itemCount="9"
+            tools:listitem="@layout/holder_book_club" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
