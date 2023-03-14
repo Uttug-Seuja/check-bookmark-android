@@ -79,6 +79,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
+            <ImageView
+                android:id="@+id/more_btn"
+                onSingleClick="@{() -> eventListener.onBookMoreClicked()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:src="@drawable/ic_more_black"
+                app:layout_constraintBottom_toBottomOf="@id/tv_lesson_list_site"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_lesson_list_site"
+                >
+
+            </ImageView>
+
             <TextView
                 android:id="@+id/tv_lesson_list_name"
                 android:layout_width="match_parent"
@@ -97,7 +111,7 @@
 
 
             <ProgressBar
-                android:id="@+id/pb_lesson_list_bar"
+                android:id="@+id/pb_book_list_percent"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="16dp"
@@ -105,7 +119,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
                 android:max="10000"
-                android:progressDrawable="@drawable/bg_rect_gray100_r10"
+                android:progressDrawable="@drawable/bg_lesson_list_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,12 +134,12 @@
                 android:text="완독까지"
                 android:textColor="@color/gray_500"
                 android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="@id/pb_lesson_list_bar"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintStart_toStartOf="@id/pb_book_list_percent"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
             <TextView
-                android:id="@+id/tv_lesson_list_percent"
+                android:id="@+id/tv_book_list_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -134,7 +148,7 @@
                 android:textColor="@color/green04"
                 android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@id/tv_class_lesson_percent_start"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -145,8 +159,8 @@
                 android:text="%"
                 android:textColor="@color/green04"
                 android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@id/tv_lesson_list_percent"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintStart_toEndOf="@id/tv_book_list_percent"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -159,7 +173,7 @@
                 android:textColor="@color/gray_500"
                 android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@id/tv_lesson_list_percent_text"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -171,7 +185,7 @@
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@id/tv_lesson_list_number_slash"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -181,9 +195,9 @@
                 android:layout_marginTop="8dp"
                 android:text="/"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@id/pb_lesson_list_bar"
+                app:layout_constraintEnd_toEndOf="@id/pb_book_list_percent"
                 app:layout_constraintEnd_toStartOf="@id/tv_lesson_list_total_number"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -194,8 +208,8 @@
                 android:layout_marginEnd="4dp"
                 android:text="387"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@id/pb_lesson_list_bar"
-                app:layout_constraintTop_toBottomOf="@id/pb_lesson_list_bar"
+                app:layout_constraintEnd_toEndOf="@id/pb_book_list_percent"
+                app:layout_constraintTop_toBottomOf="@id/pb_book_list_percent"
                 tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

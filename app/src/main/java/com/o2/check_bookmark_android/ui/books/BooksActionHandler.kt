@@ -5,5 +5,6 @@ interface BooksActionHandler {
     fun onToggleFab()
     fun onToggleRunningClicked()
     fun onBookClicked()
+    fun onBookMoreClicked()
 
 }

@@ -87,9 +87,9 @@ class BooksViewModel @Inject constructor(
         }
     }
 
-    fun onBookCreateClicked() {
+    fun onBookCreateClicked(isCreated: Boolean) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BooksNavigationAction.NavigateToBookCreate)
+            _navigationEvent.emit(BooksNavigationAction.NavigateToBookCreate(isCreated))
         }
     }
 
@@ -103,6 +103,12 @@ class BooksViewModel @Inject constructor(
     override fun onBookClicked() {
         baseViewModelScope.launch {
             _navigationEvent.emit(BooksNavigationAction.NavigateToBookmarks)
+        }
+    }
+
+    override fun onBookMoreClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BooksNavigationAction.NavigateToBookMoreBottomDialog)
         }
     }
 
