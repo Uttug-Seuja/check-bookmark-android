@@ -166,4 +166,14 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/bookClubFragment"
+        android:name="com.o2.check_bookmark_android.ui.bookclub.BookClubFragment"
+        android:label="BookClubFragment"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_book_club">
+
+    </fragment>
+
 </navigation>

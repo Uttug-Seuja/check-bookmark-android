@@ -14,10 +14,10 @@
         android:title="서재"/>
 
     <item
-        android:id="@+id/alarmRoomTabFragment"
+        android:id="@+id/bookClubFragment"
         android:enabled="true"
         android:icon="@drawable/ic_room_bottom"
-        android:title="@string/bottom_alarm_room"/>
+        android:title="북클럽"/>
 
     <item
         android:id="@+id/myPageFragment"
