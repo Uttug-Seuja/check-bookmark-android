@@ -24,6 +24,19 @@
             android:background="@color/blue_50"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/edit_btn"
+            onSingleClick="@{() -> vm.onBookmarkMoreClicked()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:src="@drawable/ic_more_white"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toEndOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="@id/toolbar">
+
+        </ImageView>
+
         <ScrollView
             android:id="@+id/sv_register_lesson"
             android:layout_width="match_parent"
@@ -44,14 +57,15 @@
                     android:background="@color/blue_50"
                     app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
+                    <TextView
                         android:id="@+id/iv_register_request_duel"
-                        android:fontFamily="@font/suit_bold"
-                        android:text="어린 왕자"
-                        android:textSize="24dp"
-                        android:textColor="@color/white"                        android:layout_width="wrap_content"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="52dp"
+                        android:fontFamily="@font/suit_bold"
+                        android:text="어린 왕자"
+                        android:textColor="@color/white"
+                        android:textSize="24dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -82,18 +96,17 @@
 
                         <TextView
                             android:id="@+id/iv_register_duel_form"
-                            android:fontFamily="@font/suit_bold"
-                            android:text="@string/hoder_bookmark_title"
-                            android:textColor="@color/gray_800"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
+                            android:fontFamily="@font/suit_bold"
+                            android:text="@string/hoder_bookmark_title"
+                            android:textColor="@color/gray_800"
                             android:textSize="16dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:ignore="ContentDescription" />
-
 
 
                         <ImageView
@@ -131,8 +144,7 @@
                             android:textColor="@color/gray_600"
                             android:textSize="14dp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/iv_register_dot_line"
-                             />
+                            app:layout_constraintTop_toBottomOf="@id/iv_register_dot_line" />
 
                         <TextView
                             android:id="@+id/tv_register_lesson_category"
@@ -156,8 +168,7 @@
                             android:textColor="@color/gray_600"
                             android:textSize="14dp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_register_lesson_total_number_info"
-                             />
+                            app:layout_constraintTop_toBottomOf="@id/tv_register_lesson_total_number_info" />
 
 
                         <TextView
@@ -199,16 +210,15 @@
                             android:id="@+id/tv_register_lesson_end_date_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
                             android:layout_marginStart="16dp"
+                            android:layout_marginTop="20dp"
                             android:layout_marginEnd="16dp"
                             android:paddingBottom="32dp"
                             android:text="ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
                             android:textColor="@color/gray_600"
                             android:textSize="14dp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_register_lesson_site"
-                            />
+                            app:layout_constraintTop_toBottomOf="@id/tv_register_lesson_site" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
