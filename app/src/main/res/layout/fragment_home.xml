@@ -86,7 +86,7 @@
                         android:overScrollMode="never"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        tools:listitem="@layout/holder_bookmark_stack" />
+                        tools:listitem="@layout/holder_book_cover_stack" />
 
                 </LinearLayout>
 

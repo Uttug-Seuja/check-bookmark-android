@@ -11,7 +11,6 @@ import com.o2.check_bookmark_android.databinding.FragmentBooksBinding
 import com.o2.check_bookmark_android.ui.books.adapter.BooksAdapter
 import com.o2.check_bookmark_android.ui.books.bottom.AlarmMoreType
 import com.o2.check_bookmark_android.ui.books.bottom.BottomBookMore
-import com.o2.check_bookmark_android.ui.home.adapter.BookmarkStack2Adapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
