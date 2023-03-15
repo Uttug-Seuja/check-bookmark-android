@@ -75,6 +75,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="28dp"
             app:srcCompat="@drawable/bookmark"
+            android:visibility="visible"
+            app:tint="@color/black" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fb_summary"
+            android:visibility="gone"
+            onSingleClick="@{() -> vm.onBookmarkCreateClicked()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/green04"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxImageSize="28dp"
+            app:srcCompat="@drawable/ic_check"
             app:tint="@color/black" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
