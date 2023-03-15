@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green04"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
         onSingleClick="@{() -> eventListener.onBookmarkDetailClicked()}">
 
             <TextView
@@ -33,7 +33,7 @@
                 android:paddingEnd="20dp"
                 android:text="@string/hoder_bookmark_title"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="22dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -46,10 +46,10 @@
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:text="아아앙ㅡㅁㄱ아ㅏ아아아ㅏ앙아ㅏㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_lesson_list_name"
             app:layout_constraintTop_toBottomOf="@id/tv_lesson_list_name"
