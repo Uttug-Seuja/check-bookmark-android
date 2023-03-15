@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BookSummaryViewModel @Inject constructor(
-) : BaseViewModel(), BookSmmaryActionHandler {
+) : BaseViewModel(), BookSummaryActionHandler {
 
     private val TAG = "BookSummaryViewModel"
 

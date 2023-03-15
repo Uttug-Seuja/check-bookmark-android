@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.o2.check_bookmark_android.databinding.HolderBookmarkBinding
 import com.o2.domain.model.Book
 
-class BookSmmaryViewHolder(
+class BookSummaryViewHolder(
     private val binding: HolderBookmarkBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 

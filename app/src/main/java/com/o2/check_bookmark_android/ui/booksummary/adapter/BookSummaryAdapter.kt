@@ -8,19 +8,19 @@ import com.o2.check_bookmark_android.databinding.HolderBookmarkBinding
 import com.o2.check_bookmark_android.ui.bookmarks.BookmarksActionHandler
 import com.o2.domain.model.Book
 
-class BookSmmaryAdapter(
+class BookSummaryAdapter(
     private val eventListener: BookmarksActionHandler,
-) : ListAdapter<Book, BookSmmaryViewHolder>(RecommendationItemDiffCallback){
+) : ListAdapter<Book, BookSummaryViewHolder>(RecommendationItemDiffCallback){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookSmmaryViewHolder {
-        return BookSmmaryViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookSummaryViewHolder {
+        return BookSummaryViewHolder(
             HolderBookmarkBinding.inflate(LayoutInflater.from(parent.context), parent, false).apply {
-                eventListener = this@BookSmmaryAdapter.eventListener
+                eventListener = this@BookSummaryAdapter.eventListener
             }
         )
     }
 
-    override fun onBindViewHolder(holder: BookSmmaryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BookSummaryViewHolder, position: Int) {
         getItem(position)?.let { item ->
             holder.bind(item)
         }
