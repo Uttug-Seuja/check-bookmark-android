@@ -6,5 +6,5 @@ interface BookClubActionHandler {
     fun onToggleRunningClicked()
     fun onBookmarkCreateClicked()
     fun onBookmarkDetailClicked()
-
+    fun onBookSummaryClicked()
 }

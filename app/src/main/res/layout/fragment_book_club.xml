@@ -91,13 +91,13 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/books_recycler"
+                    android:id="@+id/rv_book_club"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
                     android:overScrollMode="never"
-                    app:booksAdapter="@{vm.booksEvent}"
+                    app:bookClubAdapter="@{vm.bookClubEvent}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

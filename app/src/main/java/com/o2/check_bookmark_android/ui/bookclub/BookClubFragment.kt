@@ -6,6 +6,7 @@ import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.databinding.FragmentBookClubBinding
 import com.o2.check_bookmark_android.databinding.FragmentBookmarksBinding
+import com.o2.check_bookmark_android.ui.bookclub.adapter.BookClubAdapter
 import com.o2.check_bookmark_android.ui.bookmarks.adapter.BookmarksAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -20,7 +21,7 @@ class BookClubFragment : BaseFragment<FragmentBookClubBinding, BookClubViewModel
         get() = R.layout.fragment_book_club
 
     override val viewModel: BookClubViewModel by viewModels()
-//    private val bookmarkAdapter by lazy { BookmarksAdapter(viewModel) }
+    private val bookClubAdapter by lazy { BookClubAdapter(viewModel) }
 
     override fun initStartView() {
         binding.apply {
@@ -36,9 +37,9 @@ class BookClubFragment : BaseFragment<FragmentBookClubBinding, BookClubViewModel
         lifecycleScope.launchWhenStarted {
             viewModel.navigationEvent.collectLatest {
                 when (it) {
-//                    is BookClubNavigationAction.NavigateToBookmarkCreate -> navigate(
-//                        BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment(false)
-//                    )
+                    is BookClubNavigationAction.NavigateToBookSummary -> navigate(
+                        BookClubFragmentDirections.actionBookClubFragmentToBookSummaryFragment()
+                    )
 //                    is BookClubNavigationAction.NavigateToBookmarkDetail -> navigate(
 //                        BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment()
 //                    )
@@ -50,7 +51,7 @@ class BookClubFragment : BaseFragment<FragmentBookClubBinding, BookClubViewModel
     }
 
     private fun initAdapter() {
-//        binding.booksRecycler.adapter = bookmarkAdapter
+        binding.rvBookClub.adapter = bookClubAdapter
     }
 
     override fun initDataBinding() {

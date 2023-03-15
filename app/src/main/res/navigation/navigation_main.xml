@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/registerFragment">
+    app:startDestination="@id/homeFragment">
 
     <action
         android:id="@+id/action_main_fragment"
@@ -173,6 +173,19 @@
         app:popUpTo="@id/navigation_graph"
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_book_club">
+
+        <action
+            android:id="@+id/action_bookClubFragment_to_bookSummaryFragment"
+            app:destination="@id/bookSummaryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookSummaryFragment"
+        android:name="com.o2.check_bookmark_android.ui.booksummary.BookSummaryFragment"
+        android:label="BookSummaryFragment"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_book_summary">
 
     </fragment>
 

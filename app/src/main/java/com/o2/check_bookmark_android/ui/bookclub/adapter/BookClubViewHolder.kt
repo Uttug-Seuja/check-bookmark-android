@@ -1,11 +1,12 @@
 package com.o2.check_bookmark_android.ui.bookclub.adapter
 
 import androidx.recyclerview.widget.RecyclerView
+import com.o2.check_bookmark_android.databinding.HolderBookClubBinding
 import com.o2.check_bookmark_android.databinding.HolderBookmarkBinding
 import com.o2.domain.model.Book
 
 class BookClubViewHolder(
-    private val binding: HolderBookmarkBinding
+    private val binding: HolderBookClubBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Book) {

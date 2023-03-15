@@ -11,7 +11,7 @@
 
         <variable
             name="eventListener"
-            type="com.o2.check_bookmark_android.ui.books.BooksActionHandler" />
+            type="com.o2.check_bookmark_android.ui.bookclub.BookClubActionHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="6dp"
             app:cardElevation="0dp"
+            onSingleClick="@{()-> eventListener.onBookSummaryClicked()}"
             android:backgroundTint="@color/blue_50"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
