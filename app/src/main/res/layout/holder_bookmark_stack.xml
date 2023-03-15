@@ -7,7 +7,7 @@
 
         <variable
             name="holder"
-            type="com.o2.domain.model.BookmarkStack" />
+            type="com.o2.domain.model.BookCoverStack" />
 
         <variable
             name="eventListener"

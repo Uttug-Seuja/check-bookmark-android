@@ -1,6 +1,6 @@
 package com.o2.domain.model
 
-data class Bookmark(
+data class BookCover(
     val title: String,
     val last: Int,
 )

@@ -13,7 +13,6 @@ import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.o2.check_bookmark_android.ui.books.adapter.BooksAdapter
-import com.o2.domain.model.BookmarkStacks
 import com.o2.domain.model.Books
 
 @BindingAdapter("addImageCardViewVisible")

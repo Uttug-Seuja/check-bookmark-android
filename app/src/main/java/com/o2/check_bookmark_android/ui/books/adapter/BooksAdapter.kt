@@ -5,12 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.o2.check_bookmark_android.databinding.HolderBookBinding
-import com.o2.check_bookmark_android.databinding.HolderBookmarkStackBinding
 import com.o2.check_bookmark_android.ui.books.BooksActionHandler
-import com.o2.check_bookmark_android.ui.home.HomeActionHandler
 import com.o2.domain.model.Book
-import com.o2.domain.model.BookmarkStack
-import com.o2.domain.model.Books
 
 class BooksAdapter(
     private val eventListener: BooksActionHandler,

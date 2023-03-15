@@ -12,9 +12,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.o2.check_bookmark_android.ui.books.adapter.BooksAdapter
 import com.o2.check_bookmark_android.ui.home.adapter.BookmarkStack2Adapter
-import com.o2.domain.model.BookmarkStacks
+import com.o2.domain.model.BookCoverStacks
 
 @BindingAdapter("addImageCardViewVisible")
 fun CardView.bindAddImageCardViewVisible(uri: String) {
@@ -51,7 +50,7 @@ fun TextView.bindEditTextVisible(textLength: Int) {
 }
 
 @BindingAdapter("bookmarkStackAdapter")
-fun RecyclerView.bindBookmarkStackAdapter(itemList: BookmarkStacks) {
+fun RecyclerView.bindBookmarkStackAdapter(itemList: BookCoverStacks) {
     val boundAdapter = this.adapter
     if (boundAdapter is BookmarkStack2Adapter) {
         boundAdapter.submitList(itemList.bookmarkStacks)
