@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.o2.check_bookmark_android.ui.bookmarks.adapter.BookmarksAdapter
+import com.o2.check_bookmark_android.ui.booksummary.adapter.BookSummaryAdapter
 import com.o2.domain.model.Books
 
 @BindingAdapter("addImageCardViewVisible")
@@ -49,10 +50,10 @@ fun TextView.bindEditTextVisible(textLength: Int) {
     }
 }
 
-@BindingAdapter("bookmarksAdapter")
-fun RecyclerView.bindBookmarksAdapter(itemList: Books) {
+@BindingAdapter("bookSummaryAdapter")
+fun RecyclerView.bindBookSummaryAdapter(itemList: Books) {
     val boundAdapter = this.adapter
-    if (boundAdapter is BookmarksAdapter) {
+    if (boundAdapter is BookSummaryAdapter) {
         boundAdapter.submitList(itemList.book)
     }
 }

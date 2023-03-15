@@ -6,6 +6,7 @@ import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.databinding.FragmentBookClubBinding
 import com.o2.check_bookmark_android.databinding.FragmentBookSummaryBinding
+import com.o2.check_bookmark_android.ui.booksummary.adapter.BookSummaryAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -19,7 +20,7 @@ class BookSummaryFragment : BaseFragment<FragmentBookSummaryBinding, BookSummary
         get() = R.layout.fragment_book_summary
 
     override val viewModel: BookSummaryViewModel by viewModels()
-//    private val bookmarkAdapter by lazy { BookmarksAdapter(viewModel) }
+    private val bookSummaryAdapter by lazy { BookSummaryAdapter(viewModel) }
 
     override fun initStartView() {
         binding.apply {
@@ -49,7 +50,7 @@ class BookSummaryFragment : BaseFragment<FragmentBookSummaryBinding, BookSummary
     }
 
     private fun initAdapter() {
-//        binding.booksRecycler.adapter = bookmarkAdapter
+        binding.rvBookSummary.adapter = bookSummaryAdapter
     }
 
     override fun initDataBinding() {
