@@ -63,28 +63,9 @@ class BookClubViewModel @Inject constructor(
         }
     }
 
-    override fun onBookmarkCreateClicked() {
+    override fun onBookSummaryClicked(bookSummaryId: Int) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BookClubNavigationAction.NavigateToBookmarkCreate)
+            _navigationEvent.emit(BookClubNavigationAction.NavigateToBookSummary(bookSummaryId))
         }
     }
-
-    override fun onBookmarkDetailClicked() {
-        baseViewModelScope.launch {
-            _navigationEvent.emit(BookClubNavigationAction.NavigateToBookmarkDetail)
-        }
-    }
-
-    override fun onBookSummaryClicked() {
-        baseViewModelScope.launch {
-            _navigationEvent.emit(BookClubNavigationAction.NavigateToBookSummary)
-        }    }
-
-    override fun onToggleFab() {
-
-    }
-
-    override fun onToggleRunningClicked() {
-    }
-
 }

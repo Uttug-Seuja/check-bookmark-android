@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.collectLatest
 
 
 @AndroidEntryPoint
-class BookClubFragment : BaseFragment<FragmentBookClubBinding, BookClubViewModel>(R.layout.fragment_book_club) {
+class BookClubFragment :
+    BaseFragment<FragmentBookClubBinding, BookClubViewModel>(R.layout.fragment_book_club) {
 
     private val TAG = "BookClubFragment"
 
@@ -38,16 +39,11 @@ class BookClubFragment : BaseFragment<FragmentBookClubBinding, BookClubViewModel
             viewModel.navigationEvent.collectLatest {
                 when (it) {
                     is BookClubNavigationAction.NavigateToBookSummary -> navigate(
-                        BookClubFragmentDirections.actionBookClubFragmentToBookSummaryFragment()
+                        BookClubFragmentDirections.actionBookClubFragmentToBookSummaryFragment(it.bookSummaryId)
                     )
-//                    is BookClubNavigationAction.NavigateToBookmarkDetail -> navigate(
-//                        BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment()
-//                    )
-                    else -> {}
                 }
             }
         }
-
     }
 
     private fun initAdapter() {
