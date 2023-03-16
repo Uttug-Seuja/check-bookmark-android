@@ -106,6 +106,9 @@
         <argument
             android:name="is_created"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_bookCreateFragment_to_booksFragment"
+            app:destination="@id/booksFragment" />
 
     </fragment>
 
