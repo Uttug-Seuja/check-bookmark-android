@@ -20,8 +20,7 @@
         android:layout_height="wrap_content"
         android:background="@color/green04"
         android:paddingTop="30dp"
-        android:paddingBottom="30dp"
-        onSingleClick="@{() -> eventListener.onBookmarkDetailClicked()}">
+        android:paddingBottom="30dp">
 
             <TextView
                 android:id="@+id/tv_lesson_list_name"
