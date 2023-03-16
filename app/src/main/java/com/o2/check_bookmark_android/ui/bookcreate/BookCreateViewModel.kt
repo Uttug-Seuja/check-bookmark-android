@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BookCreateViewModel @Inject constructor(
-    private val mainRepository: MainRepository
 ) : BaseViewModel(), BookCreateActionHandler {
 
     private val TAG = "BookCreateViewModel"
