@@ -17,93 +17,50 @@ class BookSummaryViewModel @Inject constructor(
         MutableSharedFlow<BookSummaryNavigationAction>()
     val navigationEvent: SharedFlow<BookSummaryNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _bookSummaryEvent: MutableStateFlow<Books> =
-        MutableStateFlow(Books(emptyList()))
-    val bookSummaryEvent: StateFlow<Books> = _bookSummaryEvent
+    private val _bookSummaryEvent: MutableStateFlow<BookSummarys> =
+        MutableStateFlow(BookSummarys("", emptyList()))
+    val bookSummaryEvent: StateFlow<BookSummarys> = _bookSummaryEvent
+    var bookSummaryId = MutableStateFlow<Int>(0)
 
     init {
         getTempList()
     }
 
     private fun getTempList() {
-        val test1 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test1 = BookSummary(
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            description = "책 저자"
         )
-        val test2 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test2 = BookSummary(
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            description = "책 저자"
         )
-        val test3 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test3 = BookSummary(
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            description = "책 저자"
         )
-        val test4 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test4 = BookSummary(
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            description = "책 저자"
         )
-        val test5 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test5 = BookSummary(
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
+            description = "책 저자"
         )
 
-        val testList = Books(listOf(test1, test2, test3, test4, test5))
+        val testList = BookSummarys("d", listOf(test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
             _bookSummaryEvent.value = testList
         }
     }
 
-    override fun onBookmarkCreateClicked() {
+    override fun onBookSummaryMoreClicked() {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BookSummaryNavigationAction.NavigateToBookmarkCreate)
+            _navigationEvent.emit(
+                BookSummaryNavigationAction.NavigateToBookSummaryMoreBottomDialog(
+                    bookSummaryId.value
+                )
+            )
         }
     }
-
-    override fun onBookmarkDetailClicked() {
-        baseViewModelScope.launch {
-            _navigationEvent.emit(BookSummaryNavigationAction.NavigateToBookmarkDetail)
-        }
-    }
-
-    override fun onToggleFab() {
-
-    }
-
-    override fun onToggleRunningClicked() {
-    }
-
 }

@@ -7,7 +7,7 @@
 
         <variable
             name="holder"
-            type="com.o2.domain.model.Book" />
+            type="com.o2.domain.model.BookSummary" />
 
         <variable
             name="eventListener"
