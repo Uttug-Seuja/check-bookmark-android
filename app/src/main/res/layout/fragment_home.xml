@@ -78,7 +78,7 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/bookmark_recycler"
-                        bookmarkStackAdapter="@{vm.bookmarkStackEvent}"
+                        bookCoverStackAdapter="@{vm.bookmarkStackEvent}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:nestedScrollingEnabled="false"

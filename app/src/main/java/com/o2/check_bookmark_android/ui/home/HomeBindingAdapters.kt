@@ -49,8 +49,8 @@ fun TextView.bindEditTextVisible(textLength: Int) {
     }
 }
 
-@BindingAdapter("bookmarkStackAdapter")
-fun RecyclerView.bindBookmarkStackAdapter(itemList: BookCoverStacks) {
+@BindingAdapter("bookCoverStackAdapter")
+fun RecyclerView.bindBookCoverStackAdapter(itemList: BookCoverStacks) {
     val boundAdapter = this.adapter
     if (boundAdapter is BookCoverStack2Adapter) {
         boundAdapter.submitList(itemList.bookmarkStacks)

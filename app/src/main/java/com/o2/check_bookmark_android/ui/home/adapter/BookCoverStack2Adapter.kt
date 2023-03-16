@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.o2.check_bookmark_android.databinding.HolderBookmarkStackBinding
+import com.o2.check_bookmark_android.databinding.HolderBookCoverStackBinding
 import com.o2.check_bookmark_android.ui.home.HomeActionHandler
 import com.o2.domain.model.BookCoverStack
 
@@ -14,7 +14,7 @@ class BookCoverStack2Adapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookCoverStack2ViewHolder {
         return BookCoverStack2ViewHolder(
-            HolderBookmarkStackBinding.inflate(LayoutInflater.from(parent.context), parent, false).apply {
+            HolderBookCoverStackBinding.inflate(LayoutInflater.from(parent.context), parent, false).apply {
                 eventListener = this@BookCoverStack2Adapter.eventListener
             }
         )
