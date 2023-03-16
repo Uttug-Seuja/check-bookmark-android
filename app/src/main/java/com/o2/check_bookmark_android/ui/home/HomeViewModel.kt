@@ -71,12 +71,4 @@ class HomeViewModel @Inject constructor(
             _bookmarkStackEvent.value = testList
         }
     }
-
-    override fun onToggleFab() {
-
-    }
-
-    override fun onToggleRunningClicked() {
-    }
-
 }

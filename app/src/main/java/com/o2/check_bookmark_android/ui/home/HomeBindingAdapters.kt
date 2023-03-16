@@ -53,7 +53,7 @@ fun TextView.bindEditTextVisible(textLength: Int) {
 fun RecyclerView.bindBookCoverStackAdapter(itemList: BookCoverStacks) {
     val boundAdapter = this.adapter
     if (boundAdapter is BookCoverStack2Adapter) {
-        boundAdapter.submitList(itemList.bookmarkStacks)
+        boundAdapter.submitList(itemList.bookCoverStacks)
     }
 }
 
