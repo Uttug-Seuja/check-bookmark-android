@@ -13,7 +13,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.o2.check_bookmark_android.R
 
 class BottomBookMore(
-    val callback: (type: AlarmMoreType) -> Unit
+    val callback: (type: BookMoreType) -> Unit
 ) : BottomSheetDialogFragment(){
     private lateinit var dlg : BottomSheetDialog
 
@@ -45,16 +45,16 @@ class BottomBookMore(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val copy = requireView().findViewById<TextView>(R.id.copy_btn)
-        val save = requireView().findViewById<TextView>(R.id.save_btn)
+        val update = requireView().findViewById<TextView>(R.id.update_btn)
+        val delete = requireView().findViewById<TextView>(R.id.delete_btn)
         val close = requireView().findViewById<TextView>(R.id.close_btn)
 
-        copy.setOnClickListener {
-            callback.invoke(AlarmMoreType.Copy)
+        update.setOnClickListener {
+            callback.invoke(BookMoreType.Update)
             dismiss()
         }
-        save.setOnClickListener {
-            callback.invoke(AlarmMoreType.Save)
+        delete.setOnClickListener {
+            callback.invoke(BookMoreType.Delete)
             dismiss()
         }
         close.setOnClickListener {
@@ -63,8 +63,8 @@ class BottomBookMore(
     }
 }
 
-sealed class AlarmMoreType {
-    object Copy: AlarmMoreType()
-    object Save: AlarmMoreType()
+sealed class BookMoreType {
+    object Update: BookMoreType()
+    object Delete: BookMoreType()
 }
 

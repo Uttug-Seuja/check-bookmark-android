@@ -10,7 +10,7 @@ import com.o2.domain.model.Book
 
 class BooksAdapter(
     private val eventListener: BooksActionHandler,
-) : ListAdapter<Book, BooksViewHolder>(RecommendationItemDiffCallback){
+) : ListAdapter<Book, BooksViewHolder>(BooksItemDiffCallback){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksViewHolder {
         return BooksViewHolder(
@@ -26,7 +26,7 @@ class BooksAdapter(
         }
     }
 
-    internal object RecommendationItemDiffCallback : DiffUtil.ItemCallback<Book>() {
+    internal object BooksItemDiffCallback : DiffUtil.ItemCallback<Book>() {
         override fun areItemsTheSame(oldItem: Book, newItem: Book) =
             oldItem == newItem
 

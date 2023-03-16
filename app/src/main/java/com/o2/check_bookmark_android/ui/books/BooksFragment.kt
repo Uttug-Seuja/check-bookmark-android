@@ -9,7 +9,7 @@ import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.base.DefaultRedAlertDialog
 import com.o2.check_bookmark_android.databinding.FragmentBooksBinding
 import com.o2.check_bookmark_android.ui.books.adapter.BooksAdapter
-import com.o2.check_bookmark_android.ui.books.bottom.AlarmMoreType
+import com.o2.check_bookmark_android.ui.books.bottom.BookMoreType
 import com.o2.check_bookmark_android.ui.books.bottom.BottomBookMore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -68,10 +68,10 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
     ) {
         val dialog: BottomBookMore = BottomBookMore {
             when (it) {
-                is AlarmMoreType.Copy -> {
+                is BookMoreType.Update -> {
                     viewModel.onBookCreateClicked(isCreated = true)
                 }
-                is AlarmMoreType.Save -> bookDeleteDialog(bookId = bookId)
+                is BookMoreType.Delete -> bookDeleteDialog(bookId = bookId)
             }
         }
         Log.d("ttt", "들어옴")
@@ -80,15 +80,15 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
 
     private fun bookDeleteDialog(bookId: Int) {
         val res = AlertDialogModel(
-            title = "이 알림을 삭제할까요?",
-            description = "내 알림방에서만 볼 수 없어요",
+            title = "이 책을 삭제할까요?",
+            description = "책을 삭제하면 더이상 볼 수 없어요",
             positiveContents = "삭제하기",
             negativeContents = "취소"
         )
         val dialog: DefaultRedAlertDialog = DefaultRedAlertDialog(
             alertDialogModel = res,
             clickToPositive = {
-                toastMessage("알림을 삭제했습니다.")
+                toastMessage("책을 삭제했습니다.")
                 // api
             },
             clickToNegative = {
