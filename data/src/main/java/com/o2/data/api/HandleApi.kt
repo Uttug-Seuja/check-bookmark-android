@@ -1,4 +1,4 @@
-package com.ao2.data.api
+package com.o2.data.api
 
 import com.o2.domain.NetworkResult
 

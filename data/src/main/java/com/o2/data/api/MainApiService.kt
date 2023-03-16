@@ -1,4 +1,4 @@
-package com.ao2.data.api
+package com.o2.data.api
 
 interface MainApiService {
 }
