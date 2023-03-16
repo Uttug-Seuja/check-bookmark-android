@@ -24,8 +24,8 @@ fun CardView.bindImgLoadVisible(uri: String) {
     else this.visibility = View.GONE
 }
 
-@BindingAdapter("BookmarkTitleTextChange")
-fun TextView.bindBookmarkTitleTextChange(isCreated: Boolean) {
+@BindingAdapter("bookmarkCreateTitleTextChange")
+fun TextView.bindBookmarkCreateTitleTextChange(isCreated: Boolean) {
     /**
      * 등록하기 - 오늘은 어디까지 읽으셨나요?
      * 수정하기 - 책갈피 내용을 수정하시나요?

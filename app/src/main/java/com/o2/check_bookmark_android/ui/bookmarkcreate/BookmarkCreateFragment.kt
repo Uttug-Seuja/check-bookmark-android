@@ -1,6 +1,8 @@
 package com.o2.check_bookmark_android.ui.bookmarkcreate
 
+import android.util.Log
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.o2.check_bookmark_android.R
@@ -8,11 +10,15 @@ import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.databinding.FragmentBookCreateBinding
 import com.o2.check_bookmark_android.databinding.FragmentBookmarkCreateBinding
 import com.o2.check_bookmark_android.ui.bookcreate.BookCreateFragmentArgs
+import com.o2.check_bookmark_android.ui.bookcreate.BookCreateFragmentDirections
+import com.o2.check_bookmark_android.ui.bookcreate.BookCreateNavigationAction
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 
 @AndroidEntryPoint
-class BookmarkCreateFragment : BaseFragment<FragmentBookmarkCreateBinding, BookmarkCreateViewModel>(R.layout.fragment_bookmark_create) {
+class BookmarkCreateFragment :
+    BaseFragment<FragmentBookmarkCreateBinding, BookmarkCreateViewModel>(R.layout.fragment_bookmark_create) {
 
     private val TAG = "BookmarkCreateFragment"
 
@@ -33,9 +39,29 @@ class BookmarkCreateFragment : BaseFragment<FragmentBookmarkCreateBinding, Bookm
         setupEvent()
 
         viewModel.isCreated.value = args.isCreated
+
+        binding.groupColor.setOnCheckedChangeListener { _, id ->
+            viewModel.setColor(
+                when (id) {
+                    R.id.rb_green -> Color.GREEN
+                    R.id.rb_blue -> Color.BLUE
+                    R.id.rb_pink -> Color.PINK
+                    else -> Color.GREEN
+                }
+            )
+        }
     }
 
     private fun setupEvent() {
+        lifecycleScope.launchWhenStarted {
+            viewModel.navigationEvent.collectLatest {
+                when (it) {
+                    is BookmarkCreateNavigationAction.NavigateToBookmarkDetail -> navigate(
+                        BookmarkCreateFragmentDirections.actionBookmarkCreateFragmentToBookmarkDetailFragment(it.bookmarkId)
+                    )
+                }
+            }
+        }
     }
 
     override fun initDataBinding() {

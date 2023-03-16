@@ -80,6 +80,9 @@
         <argument
             android:name="is_created"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_bookmarkCreateFragment_to_bookmarkDetailFragment"
+            app:destination="@id/bookmarkDetailFragment" />
 
     </fragment>
 
@@ -90,6 +93,10 @@
         app:popUpTo="@id/navigation_graph"
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_bookmark_detail">
+
+        <argument
+            android:name="bookmark_id"
+            app:argType="integer" />
 
         <action
             android:id="@+id/action_bookmarkDetailFragment_to_bookmarkCreateFragment"
