@@ -47,6 +47,7 @@ class BookCreateFragment :
                     is BookCreateNavigationAction.NavigateToBooks -> navigate(
                         BookCreateFragmentDirections.actionBookCreateFragmentToBookmarksFragment(it.bookId)
                     )
+                    is BookCreateNavigationAction.NavigateToBack -> navController.popBackStack()
                 }
             }
         }
