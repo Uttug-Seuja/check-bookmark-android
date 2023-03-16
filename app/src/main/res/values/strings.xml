@@ -38,6 +38,8 @@
     <string name="hoder_bookmark_title">이것이 자바다</string>
     <string name="hoder_bookmark_mood">😄</string>
     <string name="holder_bookmark_read_page">그날 읽은 페이지: 225쪽</string>
+    <string name="delete">삭제하기</string>
+    <string name="update">수정하기</string>
 
 
 </resources>
