@@ -32,6 +32,10 @@
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_bookmarks">
 
+        <argument
+            android:name="book_id"
+            app:argType="integer" />
+
         <action
             android:id="@+id/action_bookmarksFragment_to_bookMarkCreateFragment"
             app:destination="@id/bookmarkCreateFragment"
@@ -114,8 +118,9 @@
             android:name="is_created"
             app:argType="boolean" />
         <action
-            android:id="@+id/action_bookCreateFragment_to_booksFragment"
-            app:destination="@id/booksFragment" />
+            android:id="@+id/action_bookCreateFragment_to_bookmarksFragment"
+            app:destination="@id/bookmarksFragment" />
+
 
     </fragment>
 

@@ -45,7 +45,7 @@ class BookCreateFragment :
             viewModel.navigationEvent.collectLatest {
                 when (it) {
                     is BookCreateNavigationAction.NavigateToBooks -> navigate(
-                        BookCreateFragmentDirections.actionBookCreateFragmentToBooksFragment()
+                        BookCreateFragmentDirections.actionBookCreateFragmentToBookmarksFragment(it.bookId)
                     )
                 }
             }
