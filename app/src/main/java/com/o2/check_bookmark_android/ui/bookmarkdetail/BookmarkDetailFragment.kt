@@ -9,9 +9,7 @@ import com.o2.check_bookmark_android.base.AlertDialogModel
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.base.DefaultRedAlertDialog
 import com.o2.check_bookmark_android.databinding.FragmentBookmarkDetailBinding
-import com.o2.check_bookmark_android.ui.bookmarkcreate.BookmarkCreateFragmentArgs
-import com.o2.check_bookmark_android.ui.bookmarks.BookmarksFragmentDirections
-import com.o2.check_bookmark_android.ui.books.bottom.AlarmMoreType
+import com.o2.check_bookmark_android.ui.books.bottom.BookMoreType
 import com.o2.check_bookmark_android.ui.books.bottom.BottomBookMore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -76,10 +74,10 @@ class BookmarkDetailFragment :
     ) {
         val dialog: BottomBookMore = BottomBookMore {
             when (it) {
-                is AlarmMoreType.Copy -> {
+                is BookMoreType.Update -> {
                     viewModel.onBookmarkCreateClicked()
                 }
-                is AlarmMoreType.Save -> bookDeleteDialog(bookId = bookId)
+                is BookMoreType.Delete -> bookDeleteDialog(bookId = bookId)
             }
         }
         dialog.show(childFragmentManager, TAG)
