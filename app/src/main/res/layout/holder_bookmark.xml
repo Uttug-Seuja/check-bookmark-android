@@ -7,7 +7,7 @@
 
         <variable
             name="holder"
-            type="com.o2.domain.model.Book" />
+            type="com.o2.domain.model.Bookmark" />
 
         <variable
             name="eventListener"
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/blue_50"
-        onSingleClick="@{() -> eventListener.onBookmarkDetailClicked()}"
+        onSingleClick="@{() -> eventListener.onBookmarkDetailClicked(holder.bookmark_id)}"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         android:layout_margin="10dp">

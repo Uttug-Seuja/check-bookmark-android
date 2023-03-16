@@ -12,79 +12,60 @@ import javax.inject.Inject
 class BookmarksViewModel @Inject constructor(
 ) : BaseViewModel(), BookmarksActionHandler {
 
-    private val TAG = "BooksViewModel"
+    private val TAG = "BookmarksViewModel"
 
     private val _navigationEvent: MutableSharedFlow<BookmarksNavigationAction> =
         MutableSharedFlow<BookmarksNavigationAction>()
     val navigationEvent: SharedFlow<BookmarksNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _booksEvent: MutableStateFlow<Books> =
-        MutableStateFlow(Books(emptyList()))
-    val booksEvent: StateFlow<Books> = _booksEvent
+    private val _bookmarksEvent: MutableStateFlow<Bookmarks> =
+        MutableStateFlow(Bookmarks("", emptyList()))
+    val bookmarksEvent: StateFlow<Bookmarks> = _bookmarksEvent
 
     init {
         getTempList()
     }
 
     private fun getTempList() {
-        val test1 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test1 = Bookmark(
+            bookmark_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            last = 225,
+            date = "225",
+            bookmark_color = "red",
         )
-        val test2 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test2 = Bookmark(
+            bookmark_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            last = 225,
+            date = "225",
+            bookmark_color = "red",
         )
-        val test3 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test3 = Bookmark(
+            bookmark_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            last = 225,
+            date = "225",
+            bookmark_color = "red",
         )
-        val test4 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test4 = Bookmark(
+            bookmark_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            last = 225,
+            date = "225",
+            bookmark_color = "red",
         )
-        val test5 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test5 = Bookmark(
+            bookmark_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
+            last = 225,
+            date = "225",
+            bookmark_color = "red",
         )
 
-        val testList = Books(listOf(test1, test2, test3, test4, test5))
+        val testList = Bookmarks("어린왕자", listOf(test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
-            _booksEvent.value = testList
+            _bookmarksEvent.value = testList
         }
     }
 
@@ -94,17 +75,9 @@ class BookmarksViewModel @Inject constructor(
         }
     }
 
-    override fun onBookmarkDetailClicked() {
+    override fun onBookmarkDetailClicked(bookmarkId: Int) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BookmarksNavigationAction.NavigateToBookmarkDetail)
+            _navigationEvent.emit(BookmarksNavigationAction.NavigateToBookmarkDetail(bookmarkId))
         }
     }
-
-    override fun onToggleFab() {
-
-    }
-
-    override fun onToggleRunningClicked() {
-    }
-
 }

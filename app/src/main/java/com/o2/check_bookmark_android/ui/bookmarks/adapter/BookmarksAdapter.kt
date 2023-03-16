@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import com.o2.check_bookmark_android.databinding.HolderBookmarkBinding
 import com.o2.check_bookmark_android.ui.bookmarks.BookmarksActionHandler
 import com.o2.domain.model.Book
+import com.o2.domain.model.Bookmark
 
 class BookmarksAdapter(
     private val eventListener: BookmarksActionHandler,
-) : ListAdapter<Book, BookmarksViewHolder>(RecommendationItemDiffCallback){
+) : ListAdapter<Bookmark, BookmarksViewHolder>(BookmarkItemDiffCallback){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarksViewHolder {
         return BookmarksViewHolder(
@@ -26,11 +27,11 @@ class BookmarksAdapter(
         }
     }
 
-    internal object RecommendationItemDiffCallback : DiffUtil.ItemCallback<Book>() {
-        override fun areItemsTheSame(oldItem: Book, newItem: Book) =
+    internal object BookmarkItemDiffCallback : DiffUtil.ItemCallback<Bookmark>() {
+        override fun areItemsTheSame(oldItem: Bookmark, newItem: Bookmark) =
             oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: Book, newItem: Book) =
+        override fun areContentsTheSame(oldItem: Bookmark, newItem: Bookmark) =
             oldItem.equals(newItem)
     }
 }

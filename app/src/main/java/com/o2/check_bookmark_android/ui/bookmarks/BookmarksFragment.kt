@@ -41,9 +41,8 @@ class BookmarksFragment : BaseFragment<FragmentBookmarksBinding, BookmarksViewMo
                         BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment(false)
                     )
                     is BookmarksNavigationAction.NavigateToBookmarkDetail -> navigate(
-                        BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment()
+                        BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment(it.bookmarkId)
                     )
-                    else -> {}
                 }
             }
         }
