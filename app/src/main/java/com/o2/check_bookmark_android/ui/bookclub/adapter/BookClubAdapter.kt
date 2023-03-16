@@ -9,10 +9,11 @@ import com.o2.check_bookmark_android.databinding.HolderBookmarkBinding
 import com.o2.check_bookmark_android.ui.bookclub.BookClubActionHandler
 import com.o2.check_bookmark_android.ui.bookmarks.BookmarksActionHandler
 import com.o2.domain.model.Book
+import com.o2.domain.model.BookClub
 
 class BookClubAdapter(
     private val eventListener: BookClubActionHandler,
-) : ListAdapter<Book, BookClubViewHolder>(RecommendationItemDiffCallback){
+) : ListAdapter<BookClub, BookClubViewHolder>(BookClubItemDiffCallback){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookClubViewHolder {
         return BookClubViewHolder(
@@ -28,11 +29,11 @@ class BookClubAdapter(
         }
     }
 
-    internal object RecommendationItemDiffCallback : DiffUtil.ItemCallback<Book>() {
-        override fun areItemsTheSame(oldItem: Book, newItem: Book) =
+    internal object BookClubItemDiffCallback : DiffUtil.ItemCallback<BookClub>() {
+        override fun areItemsTheSame(oldItem: BookClub, newItem: BookClub) =
             oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: Book, newItem: Book) =
+        override fun areContentsTheSame(oldItem: BookClub, newItem: BookClub) =
             oldItem.equals(newItem)
     }
 }

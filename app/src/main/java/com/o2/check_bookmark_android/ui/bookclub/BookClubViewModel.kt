@@ -17,71 +17,47 @@ class BookClubViewModel @Inject constructor(
         MutableSharedFlow<BookClubNavigationAction>()
     val navigationEvent: SharedFlow<BookClubNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _bookClubEvent: MutableStateFlow<Books> =
-        MutableStateFlow(Books(emptyList()))
-    val bookClubEvent: StateFlow<Books> = _bookClubEvent
+    private val _bookClubEvent: MutableStateFlow<BookClubs> =
+        MutableStateFlow(BookClubs(emptyList()))
+    val bookClubEvent: StateFlow<BookClubs> = _bookClubEvent
 
     init {
         getTempList()
     }
 
     private fun getTempList() {
-        val test1 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test1 = BookClub(
+            book_club_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
             author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            like_number = 225,
         )
-        val test2 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test2 = BookClub(
+            book_club_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
             author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            like_number = 225,
         )
-        val test3 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test3 = BookClub(
+            book_club_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
             author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            like_number = 225,
         )
-        val test4 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test4 = BookClub(
+            book_club_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
             author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
+            like_number = 225,
         )
-        val test5 = Book(
-            book_id = 0,
-            dDay = 2,
+        val test5 = BookClub(
+            book_club_id = 0,
             title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
             author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
+            like_number = 225,
         )
 
-        val testList = Books(listOf(test1, test2, test3, test4, test5))
+        val testList = BookClubs(listOf(test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
             _bookClubEvent.value = testList
         }
