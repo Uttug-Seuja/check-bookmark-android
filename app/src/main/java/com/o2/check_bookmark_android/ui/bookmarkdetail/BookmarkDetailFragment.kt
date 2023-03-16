@@ -3,11 +3,13 @@ package com.o2.check_bookmark_android.ui.bookmarkdetail
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.AlertDialogModel
 import com.o2.check_bookmark_android.base.BaseFragment
 import com.o2.check_bookmark_android.base.DefaultRedAlertDialog
 import com.o2.check_bookmark_android.databinding.FragmentBookmarkDetailBinding
+import com.o2.check_bookmark_android.ui.bookmarkcreate.BookmarkCreateFragmentArgs
 import com.o2.check_bookmark_android.ui.bookmarks.BookmarksFragmentDirections
 import com.o2.check_bookmark_android.ui.books.bottom.AlarmMoreType
 import com.o2.check_bookmark_android.ui.books.bottom.BottomBookMore
@@ -26,6 +28,7 @@ class BookmarkDetailFragment :
 
     override val viewModel: BookmarkDetailViewModel by viewModels()
     private val navController by lazy { findNavController() }
+    private val args: BookmarkDetailFragmentArgs by navArgs()
 
     override fun initStartView() {
         binding.apply {
@@ -35,15 +38,15 @@ class BookmarkDetailFragment :
         exception = viewModel.errorEvent
         setupEvent()
         initToolbar()
+
+        viewModel.bookmarkId.value = args.bookmarkId
     }
 
     private fun setupEvent() {
         lifecycleScope.launchWhenStarted {
             viewModel.navigationEvent.collectLatest {
                 when (it) {
-                    is BookmarkDetailNavigationAction.NavigateToBookmarkMoreBottomDialog -> bookMoreBottomDialog(
-                        0
-                    )
+                    is BookmarkDetailNavigationAction.NavigateToBookmarkMoreBottomDialog -> bookMoreBottomDialog(it.bookmarkId)
                     is BookmarkDetailNavigationAction.NavigateToBookmarkCreate -> navigate(
                         BookmarkDetailFragmentDirections.actionBookmarkDetailFragmentToBookmarkCreateFragment(
                             true
