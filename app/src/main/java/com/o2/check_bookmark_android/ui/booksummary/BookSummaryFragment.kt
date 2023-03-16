@@ -3,6 +3,7 @@ package com.o2.check_bookmark_android.ui.booksummary
 import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.base.AlertDialogModel
@@ -18,7 +19,8 @@ import kotlinx.coroutines.flow.collectLatest
 
 
 @AndroidEntryPoint
-class BookSummaryFragment : BaseFragment<FragmentBookSummaryBinding, BookSummaryViewModel>(R.layout.fragment_book_summary) {
+class BookSummaryFragment :
+    BaseFragment<FragmentBookSummaryBinding, BookSummaryViewModel>(R.layout.fragment_book_summary) {
 
     private val TAG = "BookSummaryFragment"
 
@@ -27,6 +29,7 @@ class BookSummaryFragment : BaseFragment<FragmentBookSummaryBinding, BookSummary
 
     override val viewModel: BookSummaryViewModel by viewModels()
     private val bookSummaryAdapter by lazy { BookSummaryAdapter(viewModel) }
+    private val navController by lazy { findNavController() }
     private val args: BookSummaryFragmentArgs by navArgs()
 
     override fun initStartView() {
@@ -44,13 +47,10 @@ class BookSummaryFragment : BaseFragment<FragmentBookSummaryBinding, BookSummary
         lifecycleScope.launchWhenStarted {
             viewModel.navigationEvent.collectLatest {
                 when (it) {
-//                    is BookClubNavigationAction.NavigateToBookmarkCreate -> navigate(
-//                        BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment(false)
-//                    )
-//                    is BookClubNavigationAction.NavigateToBookmarkDetail -> navigate(
-//                        BookmarksFragmentDirections.actionBookmarksFragmentToBookmarkDetailFragment()
-//                    )
-                    else -> {}
+                    is BookSummaryNavigationAction.NavigateToBookSummaryMoreBottomDialog -> bookSummaryMoreBottomDialog(
+                        it.bookId
+                    )
+                    is BookSummaryNavigationAction.NavigateToBack -> navController.popBackStack()
                 }
             }
         }
@@ -73,7 +73,7 @@ class BookSummaryFragment : BaseFragment<FragmentBookSummaryBinding, BookSummary
         val dialog: BottomBookSummaryMore = BottomBookSummaryMore {
             when (it) {
                 is BookSummaryMoreType.Boast -> {
-                    Log.d("tt","tt")
+                    Log.d("tt", "tt")
                 }
                 is BookSummaryMoreType.Delete -> bookSummaryDeleteDialog(bookId = bookId)
             }

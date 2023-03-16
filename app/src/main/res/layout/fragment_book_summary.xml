@@ -26,6 +26,7 @@
 
             <ImageView
                 android:id="@+id/iv_close"
+                onSingleClick="@{() -> vm.onBackClicked()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
@@ -49,6 +50,7 @@
 
             <ImageView
                 android:id="@+id/iv_more"
+                onSingleClick="@{() -> vm.onBookSummaryMoreClicked()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"

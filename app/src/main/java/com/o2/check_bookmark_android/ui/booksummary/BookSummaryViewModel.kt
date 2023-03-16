@@ -63,4 +63,12 @@ class BookSummaryViewModel @Inject constructor(
             )
         }
     }
+
+    override fun onBackClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(
+                BookSummaryNavigationAction.NavigateToBack
+            )
+        }
+    }
 }
