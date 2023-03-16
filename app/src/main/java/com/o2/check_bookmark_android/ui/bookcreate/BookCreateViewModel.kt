@@ -2,6 +2,7 @@ package com.o2.check_bookmark_android.ui.bookcreate
 
 import android.util.Log
 import com.ao2.run_eat.base.BaseViewModel
+import com.o2.check_bookmark_android.ui.bookmarkdetail.BookmarkDetailNavigationAction
 import com.o2.check_bookmark_android.ui.bookmarks.BookmarksNavigationAction
 import com.o2.domain.model.BookCoverStacks
 import com.o2.domain.repository.MainRepository
@@ -40,7 +41,7 @@ class BookCreateViewModel @Inject constructor(
 //                    image_url = messageImgUri.value,
 //                    send_at = sendAt,
 //                ).onSuccess {
-//                    _navigationEvent.emit(AlarmCreateNavigationAction.NavigateToReservationPushAlarm)
+                    _navigationEvent.emit(BookCreateNavigationAction.NavigateToBooks(1))
 //                }.onError {
 //                    Log.d("ttt 예약 알림 보내기 실패", it.toString())
 //                    when (it) {
@@ -51,6 +52,12 @@ class BookCreateViewModel @Inject constructor(
 //                    }
 //                }
             }
+        }
+    }
+
+    override fun onBackClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BookCreateNavigationAction.NavigateToBack)
         }
     }
 }
