@@ -57,8 +57,11 @@ class BookmarkCreateFragment :
             viewModel.navigationEvent.collectLatest {
                 when (it) {
                     is BookmarkCreateNavigationAction.NavigateToBookmarkDetail -> navigate(
-                        BookmarkCreateFragmentDirections.actionBookmarkCreateFragmentToBookmarkDetailFragment(it.bookmarkId)
+                        BookmarkCreateFragmentDirections.actionBookmarkCreateFragmentToBookmarkDetailFragment(
+                            it.bookmarkId
+                        )
                     )
+                    is BookmarkCreateNavigationAction.NavigateToBack -> navController.popBackStack()
                 }
             }
         }

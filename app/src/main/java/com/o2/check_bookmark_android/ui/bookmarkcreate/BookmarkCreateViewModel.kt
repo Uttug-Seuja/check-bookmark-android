@@ -15,7 +15,8 @@ class BookmarkCreateViewModel @Inject constructor(
 
     private val _navigationEvent: MutableSharedFlow<BookmarkCreateNavigationAction> =
         MutableSharedFlow<BookmarkCreateNavigationAction>()
-    val navigationEvent: SharedFlow<BookmarkCreateNavigationAction> = _navigationEvent.asSharedFlow()
+    val navigationEvent: SharedFlow<BookmarkCreateNavigationAction> =
+        _navigationEvent.asSharedFlow()
 
     var isCreated = MutableStateFlow<Boolean>(false)
     private val initColor = Color.GREEN
@@ -26,6 +27,10 @@ class BookmarkCreateViewModel @Inject constructor(
     val lastEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
     private val _bookmarkColorEvent: MutableStateFlow<Color> = MutableStateFlow<Color>(initColor)
     val bookmarkColorEvent: StateFlow<Color> = _bookmarkColorEvent.asStateFlow()
+
+    fun setColor(color: Color) {
+        _bookmarkColorEvent.value = color
+    }
 
     override fun onBookmarkCreateClicked() {
         if (titleEvent.value != "" && emotionEvent.value != "" && descriptionEvent.value != "" && lastEvent.value != "" && bookmarkColorEvent.value != initColor) {
@@ -51,8 +56,10 @@ class BookmarkCreateViewModel @Inject constructor(
         }
     }
 
-    fun setColor(color: Color) {
-        _bookmarkColorEvent.value = color
+    override fun onBackClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BookmarkCreateNavigationAction.NavigateToBack)
+        }
     }
 }
 
