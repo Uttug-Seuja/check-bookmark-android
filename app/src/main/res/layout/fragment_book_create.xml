@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/tv_book_create_header"
-                bookTitleTextChange="@{vm.isCreated()}"
+                bookCreateTitleTextChange="@{vm.isCreated()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="24dp"
