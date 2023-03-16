@@ -40,6 +40,7 @@
 
             <ImageView
                 android:id="@+id/iv_close"
+                onSingleClick="@{() -> vm.onBackClicked()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
@@ -70,21 +71,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:visibility="visible"
             app:backgroundTint="@color/green04"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="28dp"
             app:srcCompat="@drawable/bookmark"
-            android:visibility="visible"
             app:tint="@color/black" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fb_summary"
-            android:visibility="gone"
-            onSingleClick="@{() -> vm.onBookmarkCreateClicked()}"
+            onSingleClick="@{() -> vm.onBookmarkSummaryClicked()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:visibility="gone"
             app:backgroundTint="@color/green04"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,7 +1,6 @@
 package com.o2.check_bookmark_android.ui.bookmarks
 
 import com.ao2.run_eat.base.BaseViewModel
-import com.o2.check_bookmark_android.ui.bookmarkcreate.BookmarkCreateNavigationAction
 import com.o2.domain.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -21,6 +20,7 @@ class BookmarksViewModel @Inject constructor(
     private val _bookmarksEvent: MutableStateFlow<Bookmarks> =
         MutableStateFlow(Bookmarks("", emptyList()))
     val bookmarksEvent: StateFlow<Bookmarks> = _bookmarksEvent
+    var bookId = MutableStateFlow<Int>(0)
 
     init {
         getTempList()
@@ -75,9 +75,21 @@ class BookmarksViewModel @Inject constructor(
         }
     }
 
+    override fun onBookmarkSummaryClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BookmarksNavigationAction.NavigateToBookmarkSummary(bookId.value))
+        }
+    }
+
     override fun onBookmarkDetailClicked(bookmarkId: Int) {
         baseViewModelScope.launch {
             _navigationEvent.emit(BookmarksNavigationAction.NavigateToBookmarkDetail(bookmarkId))
+        }
+    }
+
+    override fun onBackClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BookmarksNavigationAction.NavigateToBack)
         }
     }
 }
