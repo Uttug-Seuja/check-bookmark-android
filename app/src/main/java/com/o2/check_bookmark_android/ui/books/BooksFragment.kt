@@ -44,11 +44,9 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
                         BooksFragmentDirections.actionBooksFragmentToBookCreateFragment(it.isCreated)
                     )
                     is BooksNavigationAction.NavigateToBookmarks -> navigate(
-                        BooksFragmentDirections.actionBooksFragmentToBookmarksFragment()
+                        BooksFragmentDirections.actionBooksFragmentToBookmarksFragment(it.bookId)
                     )
-                    is BooksNavigationAction.NavigateToBookMoreBottomDialog -> bookMoreBottomDialog(
-                        0
-                    )
+                    is BooksNavigationAction.NavigateToBookMoreBottomDialog -> bookMoreBottomDialog(it.bookId)
                 }
             }
         }

@@ -2,9 +2,7 @@ package com.o2.check_bookmark_android.ui.books
 
 
 interface BooksActionHandler {
-    fun onToggleFab()
-    fun onToggleRunningClicked()
-    fun onBookClicked()
-    fun onBookMoreClicked()
+    fun onBookClicked(bookId: Int)
+    fun onBookMoreClicked(bookId: Int)
 
 }

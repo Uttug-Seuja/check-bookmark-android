@@ -1,8 +1,8 @@
 package com.o2.check_bookmark_android.ui.books
 
 sealed class BooksNavigationAction {
-    object NavigateToBookmarks: BooksNavigationAction()
-    object NavigateToBookMoreBottomDialog: BooksNavigationAction()
+    class NavigateToBookmarks(val bookId: Int) : BooksNavigationAction()
+    class NavigateToBookMoreBottomDialog(val bookId: Int) : BooksNavigationAction()
     class NavigateToBookCreate(val isCreated: Boolean) : BooksNavigationAction()
 
 }

@@ -93,22 +93,15 @@ class BooksViewModel @Inject constructor(
         }
     }
 
-    override fun onToggleFab() {
-
-    }
-
-    override fun onToggleRunningClicked() {
-    }
-
-    override fun onBookClicked() {
+    override fun onBookClicked(bookId: Int) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BooksNavigationAction.NavigateToBookmarks)
+            _navigationEvent.emit(BooksNavigationAction.NavigateToBookmarks(bookId))
         }
     }
 
-    override fun onBookMoreClicked() {
+    override fun onBookMoreClicked(bookId: Int) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BooksNavigationAction.NavigateToBookMoreBottomDialog)
+            _navigationEvent.emit(BooksNavigationAction.NavigateToBookMoreBottomDialog(bookId))
         }
     }
 
