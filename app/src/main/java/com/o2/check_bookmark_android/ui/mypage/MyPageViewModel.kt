@@ -1,8 +1,6 @@
 package com.o2.check_bookmark_android.ui.mypage
 
 import com.ao2.run_eat.base.BaseViewModel
-import com.o2.check_bookmark_android.ui.editprofile.EditProfileNavigationAction
-import com.o2.check_bookmark_android.ui.editprofile.SaveProfileNavigationAction
 import com.o2.domain.model.UserProfile
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
