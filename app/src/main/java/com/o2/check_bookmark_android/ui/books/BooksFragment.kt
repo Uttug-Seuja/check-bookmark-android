@@ -37,7 +37,7 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
     }
 
     private fun setupEvent() {
-        lifecycleScope.launchWhenStarted {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.navigationEvent.collectLatest {
                 when (it) {
                     is BooksNavigationAction.NavigateToBookCreate -> navigate(
