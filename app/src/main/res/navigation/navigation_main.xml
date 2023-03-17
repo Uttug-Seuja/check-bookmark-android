@@ -41,13 +41,13 @@
             app:destination="@id/bookmarkCreateFragment"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_bookmarksFragment_to_bookmarkDetailFragment"
             app:destination="@id/bookmarkDetailFragment"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_bookmarksFragment_to_bookSummaryFragment"
             app:destination="@id/bookSummaryFragment" />
@@ -66,13 +66,13 @@
             app:destination="@id/bookCreateFragment"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_booksFragment_to_bookmarksFragment"
             app:destination="@id/bookmarksFragment"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
     </fragment>
 
@@ -145,15 +145,14 @@
             app:popEnterAnim="@anim/nav_default_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/navigation_graph"
-            app:popUpToInclusive="true"
-            />
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/action_registerFragment_to_setProfileFragment"
             app:destination="@id/setProfileFragment"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -182,6 +181,16 @@
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_my_page">
 
+        <action
+            android:id="@+id/action_myPageFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_myPageFragment_to_alarmSettingFragment"
+            app:destination="@id/alarmSettingFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right"/>
     </fragment>
 
     <fragment
@@ -211,4 +220,27 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.o2.check_bookmark_android.ui.editprofile.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_saveProfileFragment"
+            app:destination="@id/saveProfileFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/saveProfileFragment"
+        android:name="com.o2.check_bookmark_android.ui.editprofile.SaveProfileFragment"
+        android:label="SaveProfileFragment"
+        tools:layout="@layout/fragment_save_profile" />
+
+    <fragment
+        android:id="@+id/alarmSettingFragment"
+        android:name="com.o2.check_bookmark_android.ui.alarmsetting.AlarmSettingFragment"
+        android:label="AlarmSettingFragment"
+        tools:layout="@layout/fragment_alarm_setting"/>
 </navigation>
