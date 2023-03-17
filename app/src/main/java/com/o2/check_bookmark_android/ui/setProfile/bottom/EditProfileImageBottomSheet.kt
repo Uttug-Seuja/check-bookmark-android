@@ -39,7 +39,7 @@ class EditProfileImageBottomSheet(
         savedInstanceState: Bundle?,
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.bottom_sheet_edit_profile_image, container, false)
+        return inflater.inflate(R.layout.dialog_bottom_edit_profile_image, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
