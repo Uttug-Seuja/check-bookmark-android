@@ -12,6 +12,7 @@ import com.o2.check_bookmark_android.databinding.FragmentBookmarkCreateBinding
 import com.o2.check_bookmark_android.ui.bookcreate.BookCreateFragmentArgs
 import com.o2.check_bookmark_android.ui.bookcreate.BookCreateFragmentDirections
 import com.o2.check_bookmark_android.ui.bookcreate.BookCreateNavigationAction
+import com.o2.check_bookmark_android.util.defaultemotion.DefaultEmotionDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -62,9 +63,28 @@ class BookmarkCreateFragment :
                         )
                     )
                     is BookmarkCreateNavigationAction.NavigateToBack -> navController.popBackStack()
+                    is BookmarkCreateNavigationAction.NavigateToEmotionBottomSheet -> emotionBottomSheet(0)
                 }
             }
         }
+    }
+
+    private fun emotionBottomSheet(
+        reaction_id: Int,
+    ) {
+        val bottomSheet = DefaultEmotionDialog(reaction_id) {
+            when (reaction_id) {
+                0 -> {
+                }
+                it -> {
+                }
+                else -> {
+
+                }
+            }
+
+        }
+        bottomSheet.show(requireActivity().supportFragmentManager, TAG)
     }
 
     override fun initDataBinding() {

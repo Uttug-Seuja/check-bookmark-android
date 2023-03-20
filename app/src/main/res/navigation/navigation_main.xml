@@ -234,7 +234,7 @@
 
     <fragment
         android:id="@+id/saveProfileFragment"
-        android:name="com.o2.check_bookmark_android.ui.editprofile.SaveProfileFragment"
+        android:name="com.o2.check_bookmark_android.ui.editprofile.saveprofile.SaveProfileFragment"
         android:label="SaveProfileFragment"
         tools:layout="@layout/fragment_save_profile" />
 

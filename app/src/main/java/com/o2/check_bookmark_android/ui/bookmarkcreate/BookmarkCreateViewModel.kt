@@ -61,6 +61,12 @@ class BookmarkCreateViewModel @Inject constructor(
             _navigationEvent.emit(BookmarkCreateNavigationAction.NavigateToBack)
         }
     }
+
+    override fun onEmotionClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BookmarkCreateNavigationAction.NavigateToEmotionBottomSheet)
+        }
+    }
 }
 
 enum class Color {
