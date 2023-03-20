@@ -23,7 +23,7 @@ class AlarmSettingFragment : BaseFragment<FragmentAlarmSettingBinding, AlarmSett
 
     override fun initStartView() {
         binding.apply {
-            this.viewmodel = viewModel
+            this.vm = viewModel
             this.lifecycleOwner = viewLifecycleOwner
         }
         exception = viewModel.errorEvent
