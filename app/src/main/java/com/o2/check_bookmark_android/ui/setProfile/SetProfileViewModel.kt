@@ -2,6 +2,7 @@ package com.o2.check_bookmark_android.ui.setprofile
 
 import android.util.Log
 import com.ao2.run_eat.base.BaseViewModel
+import com.o2.domain.model.Profile
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,6 +18,9 @@ class SetProfileViewModel @Inject constructor(
     private val _navigationHandler: MutableSharedFlow<SetProfileNavigationAction> = MutableSharedFlow<SetProfileNavigationAction>()
     val navigationHandler: SharedFlow<SetProfileNavigationAction> = _navigationHandler.asSharedFlow()
 
+    var inputContent = MutableStateFlow<String>("")
+    var editTextMessageCountEvent = MutableStateFlow<Int>(0)
+
     var nicknameInputContent = MutableStateFlow<String>("")
     var nicknameEditTextCountEvent = MutableStateFlow<Int>(0)
 
@@ -25,19 +29,14 @@ class SetProfileViewModel @Inject constructor(
 
     var isManEvent = MutableStateFlow<Boolean?>(null)
 
-
-    val setBtnState: MutableStateFlow<Boolean> = MutableStateFlow<Boolean>(false)
-    val setPossibleState: MutableStateFlow<Boolean> = MutableStateFlow<Boolean>(false)
-
-//    val profileImg: MutableStateFlow<Profile?> = MutableStateFlow(null)
-    val profileImg: MutableStateFlow<String> = MutableStateFlow("")
+    val profileImg: MutableStateFlow<Profile?> = MutableStateFlow(null)
 
     init {
         baseViewModelScope.launch {
             showLoading()
 //            mainRepository.getProfilesRandom()
 //                .onSuccess { profile ->
-//                    profileImg.emit(profile)
+                    profileImg.emit(Profile(1,"ddd","https://cdn-icons-png.flaticon.com/512/10089/10089718.png"))
 //                }
             dismissLoading()
         }
