@@ -58,6 +58,9 @@
     <color name="blue_10">#E3ECFF</color>
     <color name="pink_50">#FF70D7</color>
     <color name="pink_10">#FFE0F6</color>
+    <color name="orange_50">#FF9F40</color>
+    <color name="purple_50">#B9A0FE</color>
+
 
     <!-- gray -->
     <color name="gray_background">#F6F7F9</color>
