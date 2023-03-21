@@ -1,11 +1,6 @@
 package com.o2.check_bookmark_android.ui.bookcreate
 
-import android.util.Log
-import com.ao2.run_eat.base.BaseViewModel
-import com.o2.check_bookmark_android.ui.bookmarkdetail.BookmarkDetailNavigationAction
-import com.o2.check_bookmark_android.ui.bookmarks.BookmarksNavigationAction
-import com.o2.domain.model.BookCoverStacks
-import com.o2.domain.repository.MainRepository
+import com.o2.check_bookmark_android.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

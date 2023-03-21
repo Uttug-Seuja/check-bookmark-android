@@ -1,6 +1,6 @@
 package com.o2.check_bookmark_android.ui.home
 
-import com.ao2.run_eat.base.BaseViewModel
+import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.BookCover
 import com.o2.domain.model.BookCoverStack
 import com.o2.domain.model.BookCoverStacks

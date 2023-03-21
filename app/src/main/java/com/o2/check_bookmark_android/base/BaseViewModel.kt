@@ -1,4 +1,4 @@
-package com.ao2.run_eat.base
+package com.o2.check_bookmark_android.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

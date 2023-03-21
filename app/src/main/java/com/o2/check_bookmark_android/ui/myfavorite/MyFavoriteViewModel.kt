@@ -1,6 +1,6 @@
 package com.o2.check_bookmark_android.ui.myfavorite
 
-import com.ao2.run_eat.base.BaseViewModel
+import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*

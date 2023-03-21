@@ -1,9 +1,7 @@
 package com.o2.check_bookmark_android.ui.register
 
 import android.util.Log
-import com.ao2.run_eat.base.BaseViewModel
-import com.o2.check_bookmark_android.ui.register.RegisterActionHandler
-import com.o2.check_bookmark_android.ui.register.RegisterNavigationAction
+import com.o2.check_bookmark_android.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

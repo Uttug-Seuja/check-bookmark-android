@@ -1,6 +1,6 @@
 package com.o2.check_bookmark_android.ui.alarmsetting
 
-import com.ao2.run_eat.base.BaseViewModel
+import com.o2.check_bookmark_android.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

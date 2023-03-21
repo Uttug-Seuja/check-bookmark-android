@@ -1,7 +1,7 @@
 package com.o2.check_bookmark_android.ui.setprofile
 
 import android.util.Log
-import com.ao2.run_eat.base.BaseViewModel
+import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.Profile
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
