@@ -28,6 +28,11 @@ class MyPageViewModel @Inject constructor(
         }
     }
 
+    override fun onMyFavoriteClicked() {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(MyPageNavigationAction.NavigateToMyFavorite)
+        }    }
+
     override fun onAlarmSettingClicked() {
         baseViewModelScope.launch {
             _navigationEvent.emit(MyPageNavigationAction.NavigateToAlarmSetting)

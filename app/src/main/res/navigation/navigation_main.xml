@@ -209,6 +209,9 @@
             app:destination="@id/alarmSettingFragment"
             app:enterAnim="@anim/enter_from_right"
             app:popExitAnim="@anim/exit_to_right"/>
+        <action
+            android:id="@+id/action_myPageFragment_to_myFavoriteFragment"
+            app:destination="@id/myFavoriteFragment" />
     </fragment>
 
     <fragment
@@ -223,6 +226,20 @@
             android:id="@+id/action_bookClubFragment_to_bookSummaryFragment"
             app:destination="@id/bookSummaryFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/myFavoriteFragment"
+        android:name="com.o2.check_bookmark_android.ui.myfavorite.MyFavoriteFragment"
+        android:label="MyFavoriteFragment"
+        app:popUpTo="@id/navigation_graph"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_my_favorite">
+
+
+        <action
+            android:id="@+id/action_myFavoriteFragment_to_bookSummaryFragment"
+            app:destination="@id/bookSummaryFragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/bookSummaryFragment"

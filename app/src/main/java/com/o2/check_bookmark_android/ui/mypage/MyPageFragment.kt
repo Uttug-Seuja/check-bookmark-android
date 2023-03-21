@@ -41,6 +41,9 @@ class MyPageFragment :
                     is MyPageNavigationAction.NavigateToAlarmSetting -> navigate(
                         MyPageFragmentDirections.actionMyPageFragmentToAlarmSettingFragment()
                     )
+                    is MyPageNavigationAction.NavigateToMyFavorite -> navigate(
+                        MyPageFragmentDirections.actionMyPageFragmentToMyFavoriteFragment()
+                    )
                 }
             }
         }
