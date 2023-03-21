@@ -18,40 +18,33 @@
         android:id="@+id/cv_lesson_list_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green04"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp">
+        android:background="@color/green04">
 
-            <TextView
-                android:id="@+id/tv_lesson_list_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/hoder_bookmark_title"
-                android:textColor="@color/white"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
+<!--            <TextView-->
+<!--                android:id="@+id/tv_lesson_list_name"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:ellipsize="end"-->
+<!--                android:maxLines="2"-->
+<!--                android:paddingStart="20dp"-->
+<!--                android:paddingEnd="20dp"-->
+<!--                android:text="@string/hoder_bookmark_title"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="22dp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:ignore="HardcodedText" />-->
 
 
         <TextView
             android:id="@+id/tv_class_lesson_percent_start"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
+            android:padding="15dp"
             android:text="아아앙ㅡㅁㄱ아ㅏ아아아ㅏ앙아ㅏㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
             android:textColor="@color/white"
             android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_lesson_list_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_lesson_list_name"
             tools:ignore="HardcodedText" />
 
 
