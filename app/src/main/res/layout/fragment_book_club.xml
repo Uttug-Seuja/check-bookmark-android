@@ -63,7 +63,7 @@
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintStart_toEndOf="@id/iv_lesson_detail_sloth"
                         app:layout_constraintTop_toTopOf="@id/iv_lesson_detail_sloth"
-                        tools:text="북클럽" />
+                        android:text="북클럽" />
 
                     <TextView
                         android:id="@+id/tv_lesson_detail_waste_money"

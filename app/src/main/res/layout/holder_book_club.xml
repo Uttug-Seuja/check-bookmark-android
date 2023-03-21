@@ -8,7 +8,6 @@
         <variable
             name="holder"
             type="com.o2.domain.model.BookClub" />
-
         <variable
             name="eventListener"
             type="com.o2.check_bookmark_android.ui.bookclub.BookClubActionHandler" />
@@ -49,6 +48,9 @@
                     android:text="@string/hoder_bookmark_title"
                     android:textColor="@color/white"
                     android:textSize="16dp"
+                    android:minHeight="100dp"
+                    android:ellipsize="end"
+                    android:maxLines="6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -56,21 +58,49 @@
 
                 <TextView
                     android:id="@+id/dd"
-                    android:layout_width="15dp"
+                    android:layout_width="11dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/suit_bold"
-                    android:text="조준장"
                     android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/suit_bold"
+                    android:maxLines="3"
+                    android:minHeight="50dp"
+                    android:text="조준장"
                     android:textColor="@color/white"
                     android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.492"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/iv_register_duel_form"
-                    app:layout_constraintVertical_bias="0.0"
                     tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/ic_baseline_favorite_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.47"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dd"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="15"
+                    android:textSize="9dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/dd"
+                    app:layout_constraintVertical_bias="0.0" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
