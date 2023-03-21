@@ -48,7 +48,7 @@ class BookSummaryViewModel @Inject constructor(
             description = "책 저자"
         )
 
-        val testList = BookSummarys("d", listOf(test1, test2, test3, test4, test5))
+        val testList = BookSummarys("d", listOf(test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
             _bookSummaryEvent.value = testList
         }
