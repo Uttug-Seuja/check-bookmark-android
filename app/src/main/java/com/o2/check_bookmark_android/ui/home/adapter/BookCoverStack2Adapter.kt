@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.o2.check_bookmark_android.databinding.HolderBookCoverStackBinding
 import com.o2.check_bookmark_android.ui.home.HomeActionHandler
-import com.o2.domain.model.BookCoverStack
+import com.o2.domain.model.BookHome
 
 class BookCoverStack2Adapter(
     private val eventListener: HomeActionHandler,
-) : ListAdapter<BookCoverStack, BookCoverStack2ViewHolder>(BookmarkStack2ItemDiffCallback){
+) : ListAdapter<BookHome, BookCoverStack2ViewHolder>(BookmarkStack2ItemDiffCallback){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookCoverStack2ViewHolder {
         return BookCoverStack2ViewHolder(
@@ -26,11 +26,11 @@ class BookCoverStack2Adapter(
         }
     }
 
-    internal object BookmarkStack2ItemDiffCallback : DiffUtil.ItemCallback<BookCoverStack>() {
-        override fun areItemsTheSame(oldItem: BookCoverStack, newItem: BookCoverStack) =
+    internal object BookmarkStack2ItemDiffCallback : DiffUtil.ItemCallback<BookHome>() {
+        override fun areItemsTheSame(oldItem: BookHome, newItem: BookHome) =
             oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: BookCoverStack, newItem: BookCoverStack) =
+        override fun areContentsTheSame(oldItem: BookHome, newItem: BookHome) =
             oldItem.equals(newItem)
     }
 }

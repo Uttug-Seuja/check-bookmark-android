@@ -17,9 +17,9 @@ class BookSummaryViewModel @Inject constructor(
         MutableSharedFlow<BookSummaryNavigationAction>()
     val navigationEvent: SharedFlow<BookSummaryNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _bookSummaryEvent: MutableStateFlow<BookSummarys> =
-        MutableStateFlow(BookSummarys("", emptyList()))
-    val bookSummaryEvent: StateFlow<BookSummarys> = _bookSummaryEvent
+    private val _bookSummaryEvent: MutableStateFlow<BooksSummary> =
+        MutableStateFlow(BooksSummary("", emptyList()))
+    val bookSummaryEvent: StateFlow<BooksSummary> = _bookSummaryEvent
     var bookSummaryId = MutableStateFlow<Int>(0)
 
     init {
@@ -48,7 +48,7 @@ class BookSummaryViewModel @Inject constructor(
             description = "책 저자"
         )
 
-        val testList = BookSummarys("d", listOf(test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1, test2, test3, test4, test5))
+        val testList = BooksSummary("d", listOf(test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1,test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
             _bookSummaryEvent.value = testList
         }

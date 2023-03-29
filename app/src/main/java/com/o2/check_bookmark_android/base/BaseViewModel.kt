@@ -2,8 +2,8 @@ package com.o2.check_bookmark_android.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-//import com.depromeet.data.model.error.InvalidAccessTokenException
-//import com.depromeet.data.model.error.InvalidAccessTokenExpire
+//import com.o2.data.model.error.InvalidAccessTokenException
+//import com.o2.data.model.error.InvalidAccessTokenExpire
 //import com.o2.check_bookmark_android.di.PresentationApplication.Companion.editor
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope

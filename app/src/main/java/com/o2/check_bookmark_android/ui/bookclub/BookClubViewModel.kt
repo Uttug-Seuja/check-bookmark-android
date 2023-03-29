@@ -17,9 +17,9 @@ class BookClubViewModel @Inject constructor(
         MutableSharedFlow<BookClubNavigationAction>()
     val navigationEvent: SharedFlow<BookClubNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _bookClubEvent: MutableStateFlow<BookClubs> =
-        MutableStateFlow(BookClubs(emptyList()))
-    val bookClubEvent: StateFlow<BookClubs> = _bookClubEvent
+    private val _bookClubEvent: MutableStateFlow<BooksClub> =
+        MutableStateFlow(BooksClub(emptyList()))
+    val bookClubEvent: StateFlow<BooksClub> = _bookClubEvent
 
     init {
         getTempList()
@@ -57,7 +57,7 @@ class BookClubViewModel @Inject constructor(
             like_number = 225,
         )
 
-        val testList = BookClubs(listOf(test1, test2, test3, test4, test5))
+        val testList = BooksClub(listOf(test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
             _bookClubEvent.value = testList
         }

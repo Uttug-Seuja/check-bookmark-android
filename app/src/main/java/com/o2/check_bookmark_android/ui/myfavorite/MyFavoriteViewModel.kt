@@ -17,9 +17,9 @@ class MyFavoriteViewModel @Inject constructor(
         MutableSharedFlow<MyFavoriteNavigationAction>()
     val navigationEvent: SharedFlow<MyFavoriteNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _myFavoriteEvent: MutableStateFlow<BookClubs> =
-        MutableStateFlow(BookClubs(emptyList()))
-    val myFavoriteEvent: StateFlow<BookClubs> = _myFavoriteEvent
+    private val _myFavoriteEvent: MutableStateFlow<BooksClub> =
+        MutableStateFlow(BooksClub(emptyList()))
+    val myFavoriteEvent: StateFlow<BooksClub> = _myFavoriteEvent
 
     init {
         getTempList()
@@ -57,7 +57,7 @@ class MyFavoriteViewModel @Inject constructor(
             like_number = 225,
         )
 
-        val testList = BookClubs(listOf(test1, test2, test3, test4, test5))
+        val testList = BooksClub(listOf(test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
             _myFavoriteEvent.value = testList
         }

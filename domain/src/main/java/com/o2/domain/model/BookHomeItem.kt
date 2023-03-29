@@ -1,6 +1,6 @@
 package com.o2.domain.model
 
-data class BookCover(
+data class BookHomeItem(
     val title: String,
     val last: Int,
 )

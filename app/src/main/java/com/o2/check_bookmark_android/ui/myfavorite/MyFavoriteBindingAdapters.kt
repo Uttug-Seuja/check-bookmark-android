@@ -12,9 +12,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.o2.check_bookmark_android.ui.bookclub.adapter.BookClubAdapter
 import com.o2.check_bookmark_android.ui.myfavorite.adapter.MyFavoriteAdapter
-import com.o2.domain.model.BookClubs
+import com.o2.domain.model.BooksClub
 
 @BindingAdapter("addImageCardViewVisible")
 fun CardView.bindAddImageCardViewVisible(uri: String) {
@@ -51,7 +50,7 @@ fun TextView.bindEditTextVisible(textLength: Int) {
 }
 
 @BindingAdapter("myFavoriteAdapter")
-fun RecyclerView.bindMyFavoriteAdapter(itemList: BookClubs) {
+fun RecyclerView.bindMyFavoriteAdapter(itemList: BooksClub) {
     val boundAdapter = this.adapter
     if (boundAdapter is MyFavoriteAdapter) {
         boundAdapter.submitList(itemList.book_club)

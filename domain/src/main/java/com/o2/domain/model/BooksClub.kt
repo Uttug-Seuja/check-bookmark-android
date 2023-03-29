@@ -1,5 +1,5 @@
 package com.o2.domain.model
 
-data class BookClubs(
+data class BooksClub(
     val book_club: List<BookClub>,
 )

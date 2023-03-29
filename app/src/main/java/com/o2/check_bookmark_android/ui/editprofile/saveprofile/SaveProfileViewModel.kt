@@ -2,6 +2,7 @@ package com.o2.check_bookmark_android.ui.editprofile.saveprofile
 
 import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.UserProfile
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,6 +49,9 @@ class SaveProfileViewModel @Inject constructor(
 //            mainRepository.postFileToUrl(file = file)
 //                .onSuccess {
 //                    profileImg.value = it.image_url
+            // 테스트 데이터
+            profileImg.value = "https://em-content.zobj.net/thumbs/240/apple/325/smiling-face-with-sunglasses_1f60e.png"
+
 //                }
 //            dismissLoading()
         }

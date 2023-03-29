@@ -1,11 +1,12 @@
 package com.o2.domain.model
 
 data class BookmarkDetail(
-    val book_name: String,
-    val title: String,
-    val emotion: String,
-    val description: String,
-    val last: Int,
-    val date: String,
-    val bookmark_color: String
+    val bookId: Int,
+    val bookMarkId: Int,
+    val bookMarkName: String,
+    val moodImageUrl: String,
+    val summary: String,
+    val checkPageNum: Int,
+    val color: String,
+    val completedStatus: Boolean
 )
