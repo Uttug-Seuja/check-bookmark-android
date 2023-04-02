@@ -2,6 +2,8 @@ package com.o2.check_bookmark_android.ui.mypage
 
 import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.UserProfile
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,6 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MyPageViewModel @Inject constructor(
+    private val mainRepository: MainRepository
 ) : BaseViewModel(), MyPageActionHandler {
 
     private val TAG = "MyPageViewModel"
@@ -21,6 +24,13 @@ class MyPageViewModel @Inject constructor(
     val navigationEvent: SharedFlow<MyPageNavigationAction> = _navigationEvent.asSharedFlow()
     val userProfile: MutableStateFlow<UserProfile?> = MutableStateFlow(null)
 
+    init {
+        baseViewModelScope.launch {
+            mainRepository.getUserProfile().onSuccess {
+                userProfile.emit(it)
+            }
+        }
+    }
 
     override fun onEditProfileClicked() {
         baseViewModelScope.launch {
