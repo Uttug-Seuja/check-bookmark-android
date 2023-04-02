@@ -1,7 +1,10 @@
 package com.o2.check_bookmark_android.ui.editprofile
 
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.data.DataApplication.Companion.editor
 import com.o2.domain.model.UserProfile
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EditProfileViewModel @Inject constructor(
-//    private val mainRepository: MainRepository,
+    private val mainRepository: MainRepository,
 ) : BaseViewModel(), EditProfileActionHandler {
 
     private val TAG = "EditProfileViewModel"
@@ -24,21 +27,21 @@ class EditProfileViewModel @Inject constructor(
 
     init {
         baseViewModelScope.launch {
-//            showLoading()
-//            mainRepository.getUserProfile()
-//                .onSuccess {
-//                    userProfile.emit(it)
-//                }
-//            dismissLoading()
+            showLoading()
+            mainRepository.getUserProfile()
+                .onSuccess {
+                    userProfile.emit(it)
+                }
+            dismissLoading()
         }
     }
 
     fun getProfile() {
         baseViewModelScope.launch {
-//            mainRepository.getUserProfile()
-//                .onSuccess {
-//                    userProfile.emit(it)
-//                }
+            mainRepository.getUserProfile()
+                .onSuccess {
+                    userProfile.emit(it)
+                }
         }
     }
 
@@ -63,29 +66,29 @@ class EditProfileViewModel @Inject constructor(
 
     fun onUserLogOut() {
         baseViewModelScope.launch {
-//            showLoading()
-//            mainRepository.postLogout()
-//                .onSuccess {
-//                    editor.remove("access_token")
-//                    editor.remove("refresh_token")
-//                    editor.commit()
-//                    _navigationHandler.emit(EditProfileNavigationAction.NavigateToSplash)
-//                }
-//            dismissLoading()
+            showLoading()
+            mainRepository.postLogOut()
+                .onSuccess {
+                    editor.remove("access_token")
+                    editor.remove("refresh_token")
+                    editor.commit()
+                    _navigationEvent.emit(EditProfileNavigationAction.NavigateToSplash)
+                }
+            dismissLoading()
         }
     }
 
     fun onUserDelete() {
         baseViewModelScope.launch {
-//            showLoading()
-//            mainRepository.postLogout()
-//                .onSuccess {
-//                    editor.remove("access_token")
-//                    editor.remove("refresh_token")
-//                    editor.commit()
-//                    _navigationHandler.emit(EditProfileNavigationAction.NavigateToSplash)
-//                }
-//            dismissLoading()
+            showLoading()
+            mainRepository.postLogOut()
+                .onSuccess {
+                    editor.remove("access_token")
+                    editor.remove("refresh_token")
+                    editor.commit()
+                    _navigationEvent.emit(EditProfileNavigationAction.NavigateToSplash)
+                }
+            dismissLoading()
         }
     }
 }

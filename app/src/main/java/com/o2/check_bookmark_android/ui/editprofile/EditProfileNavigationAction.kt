@@ -4,4 +4,6 @@ sealed class EditProfileNavigationAction {
     object NavigateToLogout: EditProfileNavigationAction()
     object NavigateToUserDelete: EditProfileNavigationAction()
     object NavigateToEditProfile: EditProfileNavigationAction()
+    object NavigateToSplash: EditProfileNavigationAction()
+
 }

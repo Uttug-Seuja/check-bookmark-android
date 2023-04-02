@@ -41,6 +41,7 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding, EditProfile
                     is EditProfileNavigationAction.NavigateToLogout -> logOutDialog()
                     is EditProfileNavigationAction.NavigateToUserDelete -> userDeleteDialog()
                     is EditProfileNavigationAction.NavigateToEditProfile -> navigate(EditProfileFragmentDirections.actionEditProfileFragmentToSaveProfileFragment())
+                    is EditProfileNavigationAction.NavigateToSplash -> navigate(EditProfileFragmentDirections.actionRegisterFragment())
                 }
             }
         }
