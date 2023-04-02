@@ -2,6 +2,7 @@ package com.o2.check_bookmark_android.ui.editprofile.saveprofile
 
 import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.UserProfile
+import com.o2.domain.onSuccess
 import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -14,12 +15,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SaveProfileViewModel @Inject constructor(
-//    private val mainRepository: MainRepository,
+    private val mainRepository: MainRepository,
 ) : BaseViewModel(), SaveProfileActionHandler {
 
     private val TAG = "SaveProfileViewModel"
 
-    private val _navigationEvent: MutableSharedFlow<SaveProfileNavigationAction> = MutableSharedFlow<SaveProfileNavigationAction>()
+    private val _navigationEvent: MutableSharedFlow<SaveProfileNavigationAction> =
+        MutableSharedFlow<SaveProfileNavigationAction>()
     val navigationEvent: SharedFlow<SaveProfileNavigationAction> = _navigationEvent.asSharedFlow()
 
     val editPossibleState: MutableStateFlow<Boolean> = MutableStateFlow<Boolean>(false)
@@ -32,28 +34,29 @@ class SaveProfileViewModel @Inject constructor(
 
     init {
         baseViewModelScope.launch {
-//            showLoading()
-//            mainRepository.getUserProfile()
-//                .onSuccess {
-//                    beforeProfile = it
-//                    profileImg.emit(it.profile_path)
-//                    profileName.emit(it.nickname)
-//                }
-//            dismissLoading()
+            showLoading()
+            mainRepository.getUserProfile()
+                .onSuccess {
+                    beforeProfile = it
+                    profileImg.emit(it.profile_path)
+                    profileName.emit(it.nickname)
+                }
+            dismissLoading()
         }
     }
 
     fun setFileToUri(file: MultipartBody.Part) {
         baseViewModelScope.launch {
-//            showLoading()
-//            mainRepository.postFileToUrl(file = file)
-//                .onSuccess {
-//                    profileImg.value = it.image_url
-            // 테스트 데이터
-            profileImg.value = "https://em-content.zobj.net/thumbs/240/apple/325/smiling-face-with-sunglasses_1f60e.png"
+            showLoading()
+            mainRepository.postFileToUrl(file = file)
+                .onSuccess {
+                    profileImg.value = it.image_url
+                    // 테스트 데이터
+                    profileImg.value =
+                        "https://em-content.zobj.net/thumbs/240/apple/325/smiling-face-with-sunglasses_1f60e.png"
 
-//                }
-//            dismissLoading()
+                }
+            dismissLoading()
         }
     }
 
@@ -65,24 +68,18 @@ class SaveProfileViewModel @Inject constructor(
 
     override fun onProfileSaveClicked() {
         baseViewModelScope.launch {
-//            showLoading()
-//            if(beforeProfile!!.profile_path != profileImg.value) {
-//                mainRepository.putUserProfile(nickname = profileName.value, profile_path = profileImg.value)
-//                    .onSuccess {
-//                        _navigationEvent.emit(SaveProfileNavigationAction.NavigateToSuccess)
-//                        dismissLoading()
-//                        return@launch
-//                    }
-//            }
-//
-//            if(beforeProfile!!.nickname != profileName.value) {
-//                mainRepository.putUserNickname(nickname = profileName.value)
-//                    .onSuccess {
-//                        _navigationEvent.emit(SaveProfileNavigationAction.NavigateToSuccess)
-//                        dismissLoading()
-//                        return@launch
-//                    }
-//            }
+            showLoading()
+            if (beforeProfile!!.profile_path != profileImg.value) {
+                mainRepository.postUserProfile(
+                    nickname = profileName.value,
+                    profile_path = profileImg.value
+                )
+                    .onSuccess {
+                        _navigationEvent.emit(SaveProfileNavigationAction.NavigateToSuccess)
+                        dismissLoading()
+                        return@launch
+                    }
+            }
         }
     }
 }

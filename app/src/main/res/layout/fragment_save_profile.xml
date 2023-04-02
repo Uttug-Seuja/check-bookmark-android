@@ -107,7 +107,7 @@
             android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@id/user_email_title"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="email">
+            android:text="@{viewmodel.beforeProfile.email}">
         </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
