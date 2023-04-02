@@ -4,13 +4,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.o2.check_bookmark_android.databinding.HolderBookSummaryBinding
 import com.o2.check_bookmark_android.databinding.HolderBookmarkBinding
 import com.o2.domain.model.Book
+import com.o2.domain.model.BookMarkDetailDto
 import com.o2.domain.model.BookSummary
 
 class BookSummaryViewHolder(
     private val binding: HolderBookSummaryBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: BookSummary) {
+    fun bind(item: BookMarkDetailDto) {
         binding.apply {
             holder = item
             executePendingBindings()

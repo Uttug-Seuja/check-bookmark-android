@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.o2.check_bookmark_android.databinding.HolderBookSummaryBinding
 import com.o2.check_bookmark_android.ui.booksummary.BookSummaryActionHandler
+import com.o2.domain.model.BookMarkDetailDto
 import com.o2.domain.model.BookSummary
 
 class BookSummaryAdapter(
     private val eventListener: BookSummaryActionHandler,
-) : ListAdapter<BookSummary, BookSummaryViewHolder>(RecommendationItemDiffCallback){
+) : ListAdapter<BookMarkDetailDto, BookSummaryViewHolder>(RecommendationItemDiffCallback){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookSummaryViewHolder {
         return BookSummaryViewHolder(
@@ -26,11 +27,11 @@ class BookSummaryAdapter(
         }
     }
 
-    internal object RecommendationItemDiffCallback : DiffUtil.ItemCallback<BookSummary>() {
-        override fun areItemsTheSame(oldItem: BookSummary, newItem: BookSummary) =
+    internal object RecommendationItemDiffCallback : DiffUtil.ItemCallback<BookMarkDetailDto>() {
+        override fun areItemsTheSame(oldItem: BookMarkDetailDto, newItem: BookMarkDetailDto) =
             oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: BookSummary, newItem: BookSummary) =
+        override fun areContentsTheSame(oldItem: BookMarkDetailDto, newItem: BookMarkDetailDto) =
             oldItem.equals(newItem)
     }
 }

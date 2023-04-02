@@ -7,7 +7,7 @@
 
         <variable
             name="holder"
-            type="com.o2.domain.model.BookSummary" />
+            type="com.o2.domain.model.BookMarkDetailDto" />
 
         <variable
             name="eventListener"
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="15dp"
-            android:text="아아앙ㅡㅁㄱ아ㅏ아아아ㅏ앙아ㅏㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
+            android:text="@{holder.summary}"
             android:textColor="@color/white"
             android:textSize="18dp"
             tools:ignore="HardcodedText" />
