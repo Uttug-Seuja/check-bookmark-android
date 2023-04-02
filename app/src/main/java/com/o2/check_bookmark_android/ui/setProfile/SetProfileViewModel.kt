@@ -2,7 +2,10 @@ package com.o2.check_bookmark_android.ui.setprofile
 
 import android.util.Log
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.domain.model.ImageUrl
 import com.o2.domain.model.Profile
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -11,12 +14,15 @@ import okhttp3.MultipartBody
 
 @HiltViewModel
 class SetProfileViewModel @Inject constructor(
+    private val mainRepository: MainRepository
 ) : BaseViewModel(), SetProfileActionHandler {
 
     private val TAG = "SetProfileViewModel"
 
-    private val _navigationHandler: MutableSharedFlow<SetProfileNavigationAction> = MutableSharedFlow<SetProfileNavigationAction>()
-    val navigationHandler: SharedFlow<SetProfileNavigationAction> = _navigationHandler.asSharedFlow()
+    private val _navigationHandler: MutableSharedFlow<SetProfileNavigationAction> =
+        MutableSharedFlow<SetProfileNavigationAction>()
+    val navigationHandler: SharedFlow<SetProfileNavigationAction> =
+        _navigationHandler.asSharedFlow()
 
     var inputContent = MutableStateFlow<String>("")
     var editTextMessageCountEvent = MutableStateFlow<Int>(0)
@@ -29,15 +35,15 @@ class SetProfileViewModel @Inject constructor(
 
     var isManEvent = MutableStateFlow<Boolean?>(null)
 
-    val profileImg: MutableStateFlow<Profile?> = MutableStateFlow(null)
+    val profileImg: MutableStateFlow<ImageUrl?> = MutableStateFlow(null)
 
     init {
         baseViewModelScope.launch {
             showLoading()
-//            mainRepository.getProfilesRandom()
-//                .onSuccess { profile ->
-                    profileImg.emit(Profile(1,"ddd","https://cdn-icons-png.flaticon.com/512/10089/10089718.png"))
-//                }
+            mainRepository.getRandomProfileImage()
+                .onSuccess { profile ->
+                    profileImg.emit(profile)
+                }
             dismissLoading()
         }
 
@@ -77,21 +83,21 @@ class SetProfileViewModel @Inject constructor(
         }
     }
 
-    override fun onGenderManClicked(){
+    override fun onGenderManClicked() {
         baseViewModelScope.launch {
             isManEvent.value = true
         }
 
     }
 
-    override fun onGenderWomanClicked(){
+    override fun onGenderWomanClicked() {
         baseViewModelScope.launch {
             Log.d("ttt", "누름")
             isManEvent.value = false
         }
     }
 
-    override fun onAgeSetClicked(){
+    override fun onAgeSetClicked() {
         baseViewModelScope.launch {
             _navigationHandler.emit(SetProfileNavigationAction.NavigateToAgeNumberPicker)
         }
@@ -138,7 +144,7 @@ class SetProfileViewModel @Inject constructor(
 //                        val fcmToken = sSharedPreferences.getString("fcm_token", null)
 //                        mainRepository.postNotificationToken(device_id = deviceId!!, token = fcmToken!!)
 //                            .onSuccess {
-                                _navigationHandler.emit(SetProfileNavigationAction.NavigateToHome)
+            _navigationHandler.emit(SetProfileNavigationAction.NavigateToHome)
 //                            }
 //                    }
 //                }
