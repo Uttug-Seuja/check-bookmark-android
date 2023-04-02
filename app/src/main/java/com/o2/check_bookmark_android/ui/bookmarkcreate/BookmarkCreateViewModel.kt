@@ -1,6 +1,9 @@
 package com.o2.check_bookmark_android.ui.bookmarkcreate
 
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.domain.onError
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -8,6 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BookmarkCreateViewModel @Inject constructor(
+    private val mainRepository: MainRepository
 ) : BaseViewModel(), BookmarkCreateActionHandler {
 
     private val TAG = "BookmarkCreateViewModel"
@@ -23,7 +27,7 @@ class BookmarkCreateViewModel @Inject constructor(
     val titleEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
     val emotionEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
     val descriptionEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
-    val lastEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
+    val lastEvent: MutableStateFlow<Int> = MutableStateFlow<Int>(0)
     private val _bookmarkColorEvent: MutableStateFlow<Color> = MutableStateFlow<Color>(initColor)
     val bookmarkColorEvent: StateFlow<Color> = _bookmarkColorEvent.asStateFlow()
 
@@ -32,25 +36,25 @@ class BookmarkCreateViewModel @Inject constructor(
     }
 
     override fun onBookmarkCreateClicked() {
-        if (titleEvent.value != "" && emotionEvent.value != "" && descriptionEvent.value != "" && lastEvent.value != "" && bookmarkColorEvent.value != initColor) {
+        if (titleEvent.value != "" && emotionEvent.value != "" && descriptionEvent.value != "" && lastEvent.value != 0 && bookmarkColorEvent.value != initColor) {
             baseViewModelScope.launch {
-//                mainRepository.postNotificationReservation(
-//                    group_id = groupId.value,
-//                    title = editTextTitleEvent.value,
-//                    content = editTextMessageEvent.value,
-//                    image_url = messageImgUri.value,
-//                    send_at = sendAt,
-//                ).onSuccess {
+                mainRepository.postBookmark(
+                    bookId = 0,
+                    bookMarkName = titleEvent.value,
+                    moodImageUrl = emotionEvent.value,
+                    summary = descriptionEvent.value,
+                    checkPageNum = lastEvent.value,
+                    color = bookmarkColorEvent.value.name
+                ).onSuccess {
 //                    _navigationEvent.emit(AlarmCreateNavigationAction.NavigateToReservationPushAlarm)
-//                }.onError {
-//                    Log.d("ttt 예약 알림 보내기 실패", it.toString())
+                }.onError {
 //                    when (it) {
 //                        // 이미 예약했다면
 //                        is InvalidAccessTokenException -> _navigationEvent.emit(
 //                            AlarmCreateNavigationAction.NavigateToNoReservationAlarm
 //                        )
 //                    }
-//                }
+                }
             }
         }
     }
