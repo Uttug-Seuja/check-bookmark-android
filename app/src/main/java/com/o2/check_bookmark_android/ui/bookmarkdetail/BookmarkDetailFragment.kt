@@ -49,7 +49,7 @@ class BookmarkDetailFragment :
                     )
                     is BookmarkDetailNavigationAction.NavigateToBookmarkCreate -> navigate(
                         BookmarkDetailFragmentDirections.actionBookmarkDetailFragmentToBookmarkCreateFragment(
-                            true
+                            true, viewModel.bookmarkId.value
                         )
                     )
                     is BookmarkDetailNavigationAction.NavigateToBookmark -> navController.popBackStack()

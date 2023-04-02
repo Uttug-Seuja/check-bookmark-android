@@ -22,6 +22,8 @@ class BookmarkCreateViewModel @Inject constructor(
         _navigationEvent.asSharedFlow()
 
     var isCreated = MutableStateFlow<Boolean>(false)
+    var bookmarkId = MutableStateFlow<Int>(-1)
+
     private val initColor = Color.GREEN
 
     val titleEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
@@ -40,6 +42,30 @@ class BookmarkCreateViewModel @Inject constructor(
             baseViewModelScope.launch {
                 mainRepository.postBookmark(
                     bookId = 0,
+                    bookMarkName = titleEvent.value,
+                    moodImageUrl = emotionEvent.value,
+                    summary = descriptionEvent.value,
+                    checkPageNum = lastEvent.value,
+                    color = bookmarkColorEvent.value.name
+                ).onSuccess {
+//                    _navigationEvent.emit(AlarmCreateNavigationAction.NavigateToReservationPushAlarm)
+                }.onError {
+//                    when (it) {
+//                        // 이미 예약했다면
+//                        is InvalidAccessTokenException -> _navigationEvent.emit(
+//                            AlarmCreateNavigationAction.NavigateToNoReservationAlarm
+//                        )
+//                    }
+                }
+            }
+        }
+    }
+
+    override fun onBookmarkUpdateClicked() {
+        if (titleEvent.value != "" && emotionEvent.value != "" && descriptionEvent.value != "" && lastEvent.value != 0 && bookmarkColorEvent.value != initColor) {
+            baseViewModelScope.launch {
+                mainRepository.updateBookmark(
+                    bookMarkId = bookmarkId.value,
                     bookMarkName = titleEvent.value,
                     moodImageUrl = emotionEvent.value,
                     summary = descriptionEvent.value,

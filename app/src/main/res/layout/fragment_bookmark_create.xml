@@ -270,7 +270,6 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/send_card_view"
-            onSingleClick="@{()-> vm.onBookmarkCreateClicked()}"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_marginStart="16dp"
@@ -284,11 +283,25 @@
 
             <TextView
                 android:id="@+id/some_id"
+                onSingleClick="@{()-> vm.onBookmarkCreateClicked()}"
+                bookmarkCreateBtnVisible="@{vm.isCreated()}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:lineSpacingExtra="4sp"
                 android:text="@string/ok"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/update_btn"
+                onSingleClick="@{()-> vm.onBookmarkUpdateClicked()}"
+                bookmarkUpdateBtnVisible="@{vm.isCreated()}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:text="수정완료"
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 

@@ -48,7 +48,7 @@ class BookmarksFragment :
                 when (it) {
                     is BookmarksNavigationAction.NavigateToBookmarkCreate -> navigate(
                         BookmarksFragmentDirections.actionBookmarksFragmentToBookMarkCreateFragment(
-                            false
+                            false, -1
                         )
                     )
                     is BookmarksNavigationAction.NavigateToBookmarkDetail -> navigate(

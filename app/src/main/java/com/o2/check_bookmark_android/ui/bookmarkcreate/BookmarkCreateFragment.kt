@@ -40,6 +40,8 @@ class BookmarkCreateFragment :
         setupEvent()
 
         viewModel.isCreated.value = args.isCreated
+        viewModel.bookmarkId.value = args.bookmarkId
+
 
         binding.groupColor.setOnCheckedChangeListener { _, id ->
             viewModel.setColor(

@@ -5,5 +5,5 @@ interface BookmarkCreateActionHandler {
     fun onBookmarkCreateClicked()
     fun onBackClicked()
     fun onEmotionClicked()
-
+    fun onBookmarkUpdateClicked()
 }

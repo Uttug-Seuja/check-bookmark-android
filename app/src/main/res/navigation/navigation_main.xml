@@ -114,6 +114,12 @@
         <argument
             android:name="is_created"
             app:argType="boolean" />
+
+        <argument
+            android:name="bookmark_id"
+            app:argType="integer" />
+
+
         <action
             android:id="@+id/action_bookmarkCreateFragment_to_bookmarkDetailFragment"
             app:destination="@id/bookmarkDetailFragment" />
