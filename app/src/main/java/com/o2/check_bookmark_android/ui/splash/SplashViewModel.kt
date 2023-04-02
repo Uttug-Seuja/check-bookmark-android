@@ -1,6 +1,8 @@
 package com.o2.check_bookmark_android.ui.splash
 
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.data.DataApplication.Companion.sSharedPreferences
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -8,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-//    private val mainRepository: MainRepositorypository
+    private val mainRepository: MainRepository
 ) : BaseViewModel() {
 
     private val TAG = "SplashViewModel"
@@ -18,22 +20,13 @@ class SplashViewModel @Inject constructor(
 
     fun getUserToken() {
         baseViewModelScope.launch {
-//            val accessToken = sSharedPreferences.getString("access_token", null)
-//            val refreshToken = sSharedPreferences.getString("refresh_token", null)
-//            if(accessToken == null) {
-            _navigationEvent.value = 1
-//            }
-//
-//            accessToken.let {
-//                mainRepository.postRefreshToken(refreshToken!!)
-//                    .onSuccess {
-//                        editor.putString("access_token", it.access_token)
-//                        editor.putString("refresh_token", it.refresh_token)
-//                        editor.commit()
-//                        _navigationHandler.value = 2 }
-//                    .onError { exception ->
-//                        catchError(e = exception) }
-//            }
+            val accessToken = sSharedPreferences.getString("access_token", null)
+            val refreshToken = sSharedPreferences.getString("refresh_token", null)
+            if (accessToken == null) {
+                _navigationEvent.value = 1
+            } else {
+                _navigationEvent.value = 2
+            }
         }
     }
 }

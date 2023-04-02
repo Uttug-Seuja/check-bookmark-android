@@ -13,14 +13,15 @@ import kotlinx.coroutines.flow.collectLatest
 
 
 @AndroidEntryPoint
-class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>(R.layout.fragment_splash) {
+class SplashFragment :
+    BaseFragment<FragmentSplashBinding, SplashViewModel>(R.layout.fragment_splash) {
 
     private val TAG = "SplashFragment"
 
     override val layoutResourceId: Int
         get() = R.layout.fragment_splash
 
-    override val viewModel : SplashViewModel by viewModels()
+    override val viewModel: SplashViewModel by viewModels()
 
     override fun initStartView() {
         binding.apply {
@@ -32,12 +33,14 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>(R.la
 
     override fun initDataBinding() {
 
-        viewModel.getUserToken()
+        lifecycleScope.launchWhenStarted {
+            viewModel.getUserToken()
+        }
 
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
             viewModel.navigationEvent.collectLatest {
                 delay(1000)
-                when(it) {
+                when (it) {
                     1 -> navigate(SplashFragmentDirections.actionSplashFragmentToRegisterFragment())
                     2 -> navigate(SplashFragmentDirections.actionMainFragment())
                 }
@@ -50,6 +53,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>(R.la
 
     override fun onDestroyView() {
         super.onDestroyView()
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+        requireActivity().window.statusBarColor =
+            ContextCompat.getColor(requireContext(), R.color.white)
     }
 }
