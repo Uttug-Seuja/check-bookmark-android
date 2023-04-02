@@ -80,7 +80,7 @@ class MainRepositoryImpl @Inject constructor(
         return handleApi { mainAPIService.updateBooks(body = body).data }
     }
 
-    override suspend fun getBooksMy(): NetworkResult<BooksMy> {
+    override suspend fun getBooksMy(): NetworkResult<BooksMyList> {
         return handleApi { mainAPIService.getBooksMy().data }
     }
 

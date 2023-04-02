@@ -7,7 +7,7 @@
 
         <variable
             name="holder"
-            type="com.o2.domain.model.Book" />
+            type="com.o2.domain.model.BooksMy" />
 
         <variable
             name="eventListener"
@@ -16,7 +16,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_lesson_list_item"
-        onSingleClick="@{() -> eventListener.onBookClicked(holder.book_id)}"
+        onSingleClick="@{() -> eventListener.onBookClicked(holder.bookId)}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -81,7 +81,7 @@
 
             <ImageView
                 android:id="@+id/more_btn"
-                onSingleClick="@{() -> eventListener.onBookMoreClicked(holder.book_id)}"
+                onSingleClick="@{() -> eventListener.onBookMoreClicked(holder.bookId)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="12dp"

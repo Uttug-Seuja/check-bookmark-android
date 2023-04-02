@@ -68,7 +68,7 @@ interface MainRepository {
     ): NetworkResult<Books>
 
     // 내가 읽은 책 List 보여주기
-    suspend fun getBooksMy(): NetworkResult<BooksMy>
+    suspend fun getBooksMy(): NetworkResult<BooksMyList>
 
     // 나의 홈화면 책 리스트
     suspend fun getBooksHome(): NetworkResult<BooksHome>

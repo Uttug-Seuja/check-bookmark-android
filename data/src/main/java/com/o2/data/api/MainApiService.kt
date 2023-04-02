@@ -71,7 +71,7 @@ interface MainAPIService {
 
     // 내가 읽은 책 List 보여주기
     @GET("/api/v1/books/my")
-    suspend fun getBooksMy(): BaseResponse<BooksMy>
+    suspend fun getBooksMy(): BaseResponse<BooksMyList>
 
     // 나의 홈화면 책 리스트
     @GET("/api/v1/books/home")

@@ -2,6 +2,8 @@ package com.o2.check_bookmark_android.ui.books
 
 import com.o2.check_bookmark_android.base.BaseViewModel
 import com.o2.domain.model.*
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -9,6 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BooksViewModel @Inject constructor(
+    private val mainRepository: MainRepository
 ) : BaseViewModel(), BooksActionHandler {
 
     private val TAG = "BooksViewModel"
@@ -17,75 +20,20 @@ class BooksViewModel @Inject constructor(
         MutableSharedFlow<BooksNavigationAction>()
     val navigationEvent: SharedFlow<BooksNavigationAction> = _navigationEvent.asSharedFlow()
 
-    private val _booksEvent: MutableStateFlow<Books> =
-        MutableStateFlow(Books(emptyList()))
-    val booksEvent: StateFlow<Books> = _booksEvent
+    private val _booksEvent: MutableStateFlow<BooksMyList?> =
+        MutableStateFlow(null)
+    val booksEvent: StateFlow<BooksMyList?> = _booksEvent
 
     init {
-        getTempList()
-    }
-
-    private fun getTempList() {
-        val test1 = Book(
-            book_id = 0,
-            dDay = 2,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
-        )
-        val test2 = Book(
-            book_id = 0,
-            dDay = 2,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
-        )
-        val test3 = Book(
-            book_id = 0,
-            dDay = 2,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
-        )
-        val test4 = Book(
-            book_id = 0,
-            dDay = 2,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-
-        )
-        val test5 = Book(
-            book_id = 0,
-            dDay = 2,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            publisher = "출판사",
-            currentPages = 225,
-            totalPages = 550,
-            percentPages = 50
-        )
-
-        val testList = Books(listOf(test1, test2, test3, test4, test5))
         baseViewModelScope.launch {
-            _booksEvent.value = testList
+            mainRepository.getBooksMy().onSuccess {
+                _booksEvent.emit(it)
+            }
         }
+
     }
+
+
 
     fun onBookCreateClicked(isCreated: Boolean) {
         baseViewModelScope.launch {
@@ -100,6 +48,12 @@ class BooksViewModel @Inject constructor(
     }
 
     override fun onBookMoreClicked(bookId: Int) {
+        baseViewModelScope.launch {
+            _navigationEvent.emit(BooksNavigationAction.NavigateToBookMoreBottomDialog(bookId))
+        }
+    }
+
+    fun onBookDeleteClicked(bookId: Int) {
         baseViewModelScope.launch {
             _navigationEvent.emit(BooksNavigationAction.NavigateToBookMoreBottomDialog(bookId))
         }
