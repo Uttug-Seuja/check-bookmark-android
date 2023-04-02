@@ -41,7 +41,7 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
             viewModel.navigationEvent.collectLatest {
                 when (it) {
                     is BooksNavigationAction.NavigateToBookCreate -> navigate(
-                        BooksFragmentDirections.actionBooksFragmentToBookCreateFragment(it.isCreated)
+                        BooksFragmentDirections.actionBooksFragmentToBookCreateFragment(it.isCreated, it.bookId)
                     )
                     is BooksNavigationAction.NavigateToBookmarks -> navigate(
                         BooksFragmentDirections.actionBooksFragmentToBookmarksFragment(it.bookId)
@@ -69,7 +69,7 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
         val dialog: BottomBookMore = BottomBookMore {
             when (it) {
                 is BookMoreType.Update -> {
-                    viewModel.onBookCreateClicked(isCreated = true)
+                    viewModel.onBookCreateClicked(isCreated = true, bookId = bookId)
                 }
                 is BookMoreType.Delete -> bookDeleteDialog(bookId = bookId)
             }

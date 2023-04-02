@@ -66,6 +66,7 @@ interface MainAPIService {
     // 책 수정
     @POST("/api/v1/books/update/{bookId}")
     suspend fun updateBooks(
+        @Path("bookId") bookId: Int,
         @Body body: PostBooksRequest
     ): BaseResponse<Books>
 

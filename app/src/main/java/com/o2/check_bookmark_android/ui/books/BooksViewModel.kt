@@ -34,9 +34,9 @@ class BooksViewModel @Inject constructor(
     }
 
 
-    fun onBookCreateClicked(isCreated: Boolean) {
+    fun onBookCreateClicked(isCreated: Boolean, bookId: Int) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BooksNavigationAction.NavigateToBookCreate(isCreated))
+            _navigationEvent.emit(BooksNavigationAction.NavigateToBookCreate(isCreated, bookId))
         }
     }
 

@@ -147,6 +147,10 @@
         <argument
             android:name="is_created"
             app:argType="boolean" />
+
+        <argument
+            android:name="book_id"
+            app:argType="integer" />
         <action
             android:id="@+id/action_bookCreateFragment_to_bookmarksFragment"
             app:destination="@id/bookmarksFragment" />

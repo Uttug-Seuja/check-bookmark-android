@@ -71,13 +71,14 @@ class MainRepositoryImpl @Inject constructor(
     }
 
     override suspend fun updateBooks(
+        bookId: Int,
         bookName: String,
         author: String,
         publisher: String,
         pageNumber: String
     ): NetworkResult<Books> {
         val body = PostBooksRequest(bookName, author, publisher, pageNumber)
-        return handleApi { mainAPIService.updateBooks(body = body).data }
+        return handleApi { mainAPIService.updateBooks(bookId = bookId, body = body).data }
     }
 
     override suspend fun getBooksMy(): NetworkResult<BooksMyList> {

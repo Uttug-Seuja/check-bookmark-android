@@ -25,6 +25,7 @@ class BookCreateViewModel @Inject constructor(
     val navigationEvent: SharedFlow<BookCreateNavigationAction> = _navigationEvent.asSharedFlow()
 
     var isCreated = MutableStateFlow<Boolean>(false)
+    var bookId = MutableStateFlow<Int?>(null)
     val titleEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
     val authorEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
     val publisherEvent: MutableStateFlow<String> = MutableStateFlow<String>("")
@@ -40,7 +41,30 @@ class BookCreateViewModel @Inject constructor(
                     publisher = publisherEvent.value,
                     pageNumber = totalPagesEvent.value,
                 ).onSuccess {
-                    _navigationEvent.emit(BookCreateNavigationAction.NavigateToBooks(1))
+                    _navigationEvent.emit(BookCreateNavigationAction.NavigateToBooks(it.id))
+                }.onError {
+                    when (it) {
+//                        // 이미 예약했다면
+//                        is InvalidAccessTokenException -> _navigationEvent.emit(
+//                            AlarmCreateNavigationAction.NavigateToNoReservationAlarm
+//                        )
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onBookUpdateClicked(bookId: Int) {
+        if (titleEvent.value != "" && authorEvent.value != "" && publisherEvent.value != "" && totalPagesEvent.value != "") {
+            baseViewModelScope.launch {
+                mainRepository.updateBooks(
+                    bookId = bookId,
+                    bookName = titleEvent.value,
+                    author = authorEvent.value,
+                    publisher = publisherEvent.value,
+                    pageNumber = totalPagesEvent.value,
+                ).onSuccess {
+                    _navigationEvent.emit(BookCreateNavigationAction.NavigateToBooks(it.id))
                 }.onError {
                     when (it) {
 //                        // 이미 예약했다면

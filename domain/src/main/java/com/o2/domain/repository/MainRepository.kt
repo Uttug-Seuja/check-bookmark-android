@@ -61,6 +61,7 @@ interface MainRepository {
 
     // 책 수정
     suspend fun updateBooks(
+        bookId: Int,
         bookName: String,
         author: String,
         publisher: String,

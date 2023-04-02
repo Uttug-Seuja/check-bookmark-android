@@ -38,6 +38,24 @@ fun TextView.bindCreateBookTitleTextChange(isCreated: Boolean) {
     }
 }
 
+@BindingAdapter("bookCreateBtnVisible")
+fun TextView.bindBookCreateBtnVisible(isCreated: Boolean) {
+    if (isCreated) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.GONE
+    }
+}
+
+@BindingAdapter("bookUpdateBtnVisible")
+fun TextView.bindBookUpdateBtnVisible(isCreated: Boolean) {
+    if (isCreated) {
+        this.visibility = View.GONE
+    } else {
+        this.visibility = View.VISIBLE
+    }
+}
+
 @BindingAdapter("editTextVisible")
 fun TextView.bindEditTextVisible(textLength: Int) {
     if (textLength == 0) {

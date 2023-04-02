@@ -38,6 +38,8 @@ class BookCreateFragment :
         exception = viewModel.errorEvent
         setupEvent()
         viewModel.isCreated.value = args.isCreated
+        viewModel.bookId.value = args.bookId
+
     }
 
     private fun setupEvent() {

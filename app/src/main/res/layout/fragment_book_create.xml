@@ -195,12 +195,25 @@
 
             <TextView
                 android:id="@+id/some_id"
+                bookCreateBtnVisible ="@{vm.isCreated()}"
                 onSingleClick="@{()-> vm.onBookCreateClicked()}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:lineSpacingExtra="4sp"
                 android:text="완료"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/update_btn"
+                bookCreateBtnVisible ="@{vm.isCreated()}"
+                onSingleClick="@{()-> vm.onBookUpdateClicked()}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:text="수정 완료"
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
