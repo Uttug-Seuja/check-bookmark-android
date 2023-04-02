@@ -1,6 +1,8 @@
 package com.o2.check_bookmark_android.ui.bookmarkdetail
 
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.domain.model.BookmarkDetail
+import com.o2.domain.model.ImageUrl
 import com.o2.domain.onSuccess
 import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,6 +27,17 @@ class BookmarkDetailViewModel @Inject constructor(
         _navigationEvent.asSharedFlow()
 
     var bookmarkId = MutableStateFlow<Int>(0)
+    var bookmarkDetail: MutableStateFlow<BookmarkDetail?> = MutableStateFlow(null)
+
+
+    init {
+        baseViewModelScope.launch {
+            mainRepository.getBookmarkDetail(bookMarkId = bookmarkId.value)
+                .onSuccess {
+                    bookmarkDetail.emit(it)
+            }
+        }
+    }
 
     override fun onBookmarkMoreClicked() {
         baseViewModelScope.launch {
