@@ -1,16 +1,14 @@
 package com.o2.check_bookmark_android.ui.setprofile
 
-import android.util.Log
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.data.DataApplication.Companion.sSharedPreferences
 import com.o2.domain.model.ImageUrl
-import com.o2.domain.model.Profile
 import com.o2.domain.onSuccess
 import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlinx.coroutines.flow.*
-import okhttp3.MultipartBody
 
 @HiltViewModel
 class SetProfileViewModel @Inject constructor(
@@ -58,16 +56,6 @@ class SetProfileViewModel @Inject constructor(
                 onAgeEditTextCount(it.length)
             }
         }
-        baseViewModelScope.launch {
-            showLoading()
-//            mainRepository.getUserProfile()
-//                .onSuccess {
-//                    beforeProfile = it
-//                    profileImg.emit(it.profile_path)
-//                    profileName.emit(it.nickname)
-//                }
-            dismissLoading()
-        }
     }
 
 
@@ -92,7 +80,6 @@ class SetProfileViewModel @Inject constructor(
 
     override fun onGenderWomanClicked() {
         baseViewModelScope.launch {
-            Log.d("ttt", "누름")
             isManEvent.value = false
         }
     }
@@ -104,53 +91,31 @@ class SetProfileViewModel @Inject constructor(
 
     }
 
-
     override fun onProfileImageSetClicked() {
         baseViewModelScope.launch {
             _navigationHandler.emit(SetProfileNavigationAction.NavigateToSetProfileImage)
         }
     }
 
-    fun setFileToUri(file: MultipartBody.Part) {
-        baseViewModelScope.launch {
-            showLoading()
-//            mainRepository.postFileToUrl(file = file)
-//                .onSuccess {
-//                    profileImg.value = it.image_url
-//                }
-            dismissLoading()
-        }
-    }
-
     override fun onSelectionDoneClicked() {
         baseViewModelScope.launch {
             showLoading()
-//            val idToken = sSharedPreferences.getString("id_token", null)
-//            val provider = sSharedPreferences.getString("provider", null)
-//            if(inputContent.value == "") {
-//                _navigationHandler.emit(SetProfileNavigationAction.NavigateToEmpty)
-//            } else {
-//                if(idToken != null && provider != null) {
-//                    mainRepository.postRegister(
-//                        idToken = idToken,
-//                        provider = provider,
-//                        profile_path = profileImg.value!!.url,
-//                        nickname = inputContent.value
-//                    ).onSuccess {
-//                        editor.putString("access_token", it.access_token)
-//                        editor.putString("refresh_token", it.refresh_token)
-//                        editor.commit()
-//                        val deviceId = sSharedPreferences.getString("device_id", null)
-//                        val fcmToken = sSharedPreferences.getString("fcm_token", null)
-//                        mainRepository.postNotificationToken(device_id = deviceId!!, token = fcmToken!!)
-//                            .onSuccess {
-            _navigationHandler.emit(SetProfileNavigationAction.NavigateToHome)
-//                            }
-//                    }
-//                }
-//            }
+            val idToken = sSharedPreferences.getString("id_token", null)
+            val provider = sSharedPreferences.getString("provider", null)
+            if (inputContent.value == "") {
+                _navigationHandler.emit(SetProfileNavigationAction.NavigateToEmpty)
+            } else {
+                if (idToken != null && provider != null) {
+                    mainRepository.postSignUp(
+                        idToken = idToken,
+                        profile_path = profileImg.value!!.image_url,
+                        nickname = inputContent.value
+                    ).onSuccess {
+                        _navigationHandler.emit(SetProfileNavigationAction.NavigateToHome)
+                    }
+                }
+            }
             dismissLoading()
         }
     }
-
 }
