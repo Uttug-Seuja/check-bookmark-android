@@ -51,10 +51,6 @@ class SaveProfileViewModel @Inject constructor(
             mainRepository.postFileToUrl(file = file)
                 .onSuccess {
                     profileImg.value = it.image_url
-                    // 테스트 데이터
-                    profileImg.value =
-                        "https://em-content.zobj.net/thumbs/240/apple/325/smiling-face-with-sunglasses_1f60e.png"
-
                 }
             dismissLoading()
         }
