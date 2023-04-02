@@ -19,8 +19,8 @@ class MainRepositoryImpl @Inject constructor(
         return handleApi { mainAPIService.postFileToUrl(file = file).data }
     }
 
-    override suspend fun postLogin(idTokenString: String): NetworkResult<Unit> {
-        return handleApi { mainAPIService.postLogin(idTokenString = idTokenString) }
+    override suspend fun postLogin(idTokenString: String): NetworkResult<LogInStatus> {
+        return handleApi { mainAPIService.postLogin(idTokenString = idTokenString).data }
     }
 
     override suspend fun postSignUp(

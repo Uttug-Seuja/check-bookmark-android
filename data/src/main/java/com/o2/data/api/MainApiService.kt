@@ -16,7 +16,7 @@ interface MainAPIService {
     @POST("api/v1/user/signIn")
     suspend fun postLogin(
         @Query("idTokenString") idTokenString: String
-    ): Unit
+    ): BaseResponse<LogInStatus>
 
     // 회원가입
     @POST("/api/v1/user/signUp")

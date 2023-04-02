@@ -2,6 +2,8 @@ package com.o2.check_bookmark_android.ui.register
 
 import android.util.Log
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,11 +14,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
+    private val mainRepository: MainRepository
 ) : BaseViewModel(), RegisterActionHandler {
 
     private val TAG = "RegisterViewModel"
 
-    private val _navigationHandler: MutableSharedFlow<RegisterNavigationAction> = MutableSharedFlow<RegisterNavigationAction>()
+    private val _navigationHandler: MutableSharedFlow<RegisterNavigationAction> =
+        MutableSharedFlow<RegisterNavigationAction>()
     val navigationHandler: SharedFlow<RegisterNavigationAction> = _navigationHandler.asSharedFlow()
     val notificationAgreed: MutableStateFlow<Boolean> = MutableStateFlow<Boolean>(false)
     val firebaseToken: MutableStateFlow<String> = MutableStateFlow("")
@@ -36,30 +40,14 @@ class RegisterViewModel @Inject constructor(
     fun oauthLogin(idToken: String) {
         baseViewModelScope.launch {
             showLoading()
-//            mainRepository.getTokenValidation(idToken = idToken, provider = provider)
-//                .onSuccess {
-//                    editor.putString("id_token", idToken)
-//                    editor.putString("provider", provider)
-//                    editor.putString("fcm_token", firebaseToken.value)
-//                    editor.putString("device_id", deviceId.value)
-//
-//                    if(!it.is_registered) {
-//                        editor.commit()
+            mainRepository.postLogin(idTokenString = idToken)
+                .onSuccess {
+                    if (it.logInStatus) {
+                        _navigationHandler.emit(RegisterNavigationAction.NavigateToLoginAlready)
+                    } else {
                         _navigationHandler.emit(RegisterNavigationAction.NavigateToLoginFirst)
-//                    } else {
-//                        mainRepository.postLogin(idToken = idToken, provider = provider)
-//                            .onSuccess { response ->
-//                                editor.putString("access_token", response.access_token)
-//                                editor.putString("refresh_token", response.refresh_token)
-//                                editor.commit()
-//
-//                                mainRepository.postNotificationToken(token = firebaseToken.value, device_id = deviceId.value)
-//                                    .onSuccess {
-//                                        _navigationHandler.emit(RegisterNavigationAction.NavigateToLoginAlready)
-//                                    }
-//                            }
-//                    }
-//                }
+                    }
+                }
             dismissLoading()
         }
     }
@@ -84,7 +72,5 @@ class RegisterViewModel @Inject constructor(
         baseViewModelScope.launch {
             _navigationHandler.emit(RegisterNavigationAction.NavigateToGoogleLogin)
         }
-
     }
-
 }

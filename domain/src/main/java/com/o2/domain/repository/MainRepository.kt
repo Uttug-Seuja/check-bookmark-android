@@ -19,7 +19,7 @@ interface MainRepository {
     // 로그인(회원인지 판단)
     suspend fun postLogin(
         idTokenString: String
-    ): NetworkResult<Unit>
+    ): NetworkResult<LogInStatus>
 
     // 회원가입
     suspend fun postSignUp(
