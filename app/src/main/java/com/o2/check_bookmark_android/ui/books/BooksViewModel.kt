@@ -34,7 +34,6 @@ class BooksViewModel @Inject constructor(
     }
 
 
-
     fun onBookCreateClicked(isCreated: Boolean) {
         baseViewModelScope.launch {
             _navigationEvent.emit(BooksNavigationAction.NavigateToBookCreate(isCreated))
@@ -55,7 +54,13 @@ class BooksViewModel @Inject constructor(
 
     fun onBookDeleteClicked(bookId: Int) {
         baseViewModelScope.launch {
-            _navigationEvent.emit(BooksNavigationAction.NavigateToBookMoreBottomDialog(bookId))
+            mainRepository.deleteBooks(bookId).onSuccess {
+                baseViewModelScope.launch {
+                    mainRepository.getBooksMy().onSuccess {
+                        _booksEvent.emit(it)
+                    }
+                }
+            }
         }
     }
 

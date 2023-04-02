@@ -90,6 +90,7 @@ class BooksFragment : BaseFragment<FragmentBooksBinding, BooksViewModel>(R.layou
             clickToPositive = {
                 toastMessage("책을 삭제했습니다.")
                 // api
+                viewModel.onBookDeleteClicked(bookId)
             },
             clickToNegative = {
                 toastMessage("아니요")
