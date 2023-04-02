@@ -93,6 +93,7 @@ class BookSummaryFragment :
             alertDialogModel = res,
             clickToPositive = {
                 toastMessage("자랑하기를 삭제했습니다.")
+                viewModel.onBookBoastDeleteClicked()
                 // api
             },
             clickToNegative = {

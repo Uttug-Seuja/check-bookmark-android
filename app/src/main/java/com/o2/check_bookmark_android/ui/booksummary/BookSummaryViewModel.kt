@@ -40,6 +40,12 @@ class BookSummaryViewModel @Inject constructor(
         }
     }
 
+    fun onBookBoastDeleteClicked(){
+        baseViewModelScope.launch {
+            mainRepository.postBooksResisterCancel(bookId = bookSummaryId.value)
+        }
+    }
+
     override fun onBookSummaryMoreClicked() {
         baseViewModelScope.launch {
             _navigationEvent.emit(
