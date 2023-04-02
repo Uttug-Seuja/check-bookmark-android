@@ -7,7 +7,7 @@
     <data>
         <variable
             name="holder"
-            type="com.o2.domain.model.Category" />
+            type="com.o2.domain.model.MoodImageUrl" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
             android:id="@+id/category_emoji"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@{holder.emoji}">
+            android:text="@{holder.moodImageUrl}">
 
         </TextView>
 
@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             app:layout_constraintStart_toEndOf="@id/category_emoji"
-            android:text="@{holder.content}">
+            android:text="@{holder.moodName}">
 
         </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
