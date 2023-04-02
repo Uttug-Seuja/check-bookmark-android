@@ -135,6 +135,9 @@
         <action
             android:id="@+id/action_bookmarkDetailFragment_to_bookmarkCreateFragment"
             app:destination="@id/bookmarkCreateFragment" />
+        <action
+            android:id="@+id/action_bookmarkDetailFragment_to_bookmarksFragment"
+            app:destination="@id/bookmarksFragment" />
     </fragment>
 
     <fragment

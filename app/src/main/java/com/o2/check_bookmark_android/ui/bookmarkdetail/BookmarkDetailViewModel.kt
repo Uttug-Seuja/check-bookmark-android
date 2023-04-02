@@ -1,6 +1,8 @@
 package com.o2.check_bookmark_android.ui.bookmarkdetail
 
 import com.o2.check_bookmark_android.base.BaseViewModel
+import com.o2.domain.onSuccess
+import com.o2.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,6 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BookmarkDetailViewModel @Inject constructor(
+    private val mainRepository: MainRepository
 ) : BaseViewModel(), BookmarkDetailActionHandler {
 
     private val TAG = "BookmarkDetailViewModel"
@@ -36,6 +39,14 @@ class BookmarkDetailViewModel @Inject constructor(
     override fun onBookmarkCreateClicked() {
         baseViewModelScope.launch {
             _navigationEvent.emit(BookmarkDetailNavigationAction.NavigateToBookmarkCreate)
+        }
+    }
+
+    fun onBookmarkDeleteClicked(bookmarkId : Int) {
+        baseViewModelScope.launch {
+            mainRepository.deleteBookmark(bookMarkId = bookmarkId).onSuccess {
+                _navigationEvent.emit(BookmarkDetailNavigationAction.NavigateToBookmark)
+            }
         }
     }
 

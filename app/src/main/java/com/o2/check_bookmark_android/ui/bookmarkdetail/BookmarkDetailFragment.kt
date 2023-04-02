@@ -44,12 +44,15 @@ class BookmarkDetailFragment :
         lifecycleScope.launchWhenStarted {
             viewModel.navigationEvent.collectLatest {
                 when (it) {
-                    is BookmarkDetailNavigationAction.NavigateToBookmarkMoreBottomDialog -> bookMoreBottomDialog(it.bookmarkId)
+                    is BookmarkDetailNavigationAction.NavigateToBookmarkMoreBottomDialog -> bookmarkMoreBottomDialog(
+                        it.bookmarkId
+                    )
                     is BookmarkDetailNavigationAction.NavigateToBookmarkCreate -> navigate(
                         BookmarkDetailFragmentDirections.actionBookmarkDetailFragmentToBookmarkCreateFragment(
                             true
                         )
                     )
+                    is BookmarkDetailNavigationAction.NavigateToBookmark -> navController.popBackStack()
                 }
             }
         }
@@ -69,32 +72,33 @@ class BookmarkDetailFragment :
     override fun initAfterBinding() {
     }
 
-    private fun bookMoreBottomDialog(
-        bookId: Int,
+    private fun bookmarkMoreBottomDialog(
+        bookMarkId: Int,
     ) {
         val dialog: BottomBookMore = BottomBookMore {
             when (it) {
                 is BookMoreType.Update -> {
                     viewModel.onBookmarkCreateClicked()
                 }
-                is BookMoreType.Delete -> bookDeleteDialog(bookId = bookId)
+                is BookMoreType.Delete -> bookmarkDeleteDialog(bookMarkId = bookMarkId)
             }
         }
         dialog.show(childFragmentManager, TAG)
     }
 
-    private fun bookDeleteDialog(bookId: Int) {
+    private fun bookmarkDeleteDialog(bookMarkId: Int) {
         val res = AlertDialogModel(
-            title = "이 알림을 삭제할까요?",
-            description = "내 알림방에서만 볼 수 없어요",
+            title = "이 북마크를 삭제할까요?",
+            description = "북마크를 삭제하면 볼 수 없어요",
             positiveContents = "삭제하기",
             negativeContents = "취소"
         )
         val dialog: DefaultRedAlertDialog = DefaultRedAlertDialog(
             alertDialogModel = res,
             clickToPositive = {
-                toastMessage("알림을 삭제했습니다.")
+                toastMessage("북마크를 삭제했습니다.")
                 // api
+                viewModel.onBookmarkDeleteClicked(bookMarkId)
             },
             clickToNegative = {
                 toastMessage("아니요")
