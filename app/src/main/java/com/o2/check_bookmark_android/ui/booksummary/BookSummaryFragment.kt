@@ -73,7 +73,7 @@ class BookSummaryFragment :
         val dialog: BottomBookSummaryMore = BottomBookSummaryMore {
             when (it) {
                 is BookSummaryMoreType.Boast -> {
-                    Log.d("tt", "tt")
+                    viewModel.onBookBoastClicked()
                 }
                 is BookSummaryMoreType.Delete -> bookSummaryDeleteDialog(bookId = bookId)
             }
