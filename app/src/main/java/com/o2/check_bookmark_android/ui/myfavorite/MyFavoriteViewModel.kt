@@ -22,45 +22,6 @@ class MyFavoriteViewModel @Inject constructor(
     val myFavoriteEvent: StateFlow<BooksClub> = _myFavoriteEvent
 
     init {
-        getTempList()
-    }
-
-    private fun getTempList() {
-        val test1 = BookClub(
-            book_club_id = 0,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            like_number = 225,
-        )
-        val test2 = BookClub(
-            book_club_id = 0,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            like_number = 225,
-        )
-        val test3 = BookClub(
-            book_club_id = 0,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            like_number = 225,
-        )
-        val test4 = BookClub(
-            book_club_id = 0,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            like_number = 225,
-        )
-        val test5 = BookClub(
-            book_club_id = 0,
-            title = "어린왕자(생택취페리 탄생 120주년 블라블라)",
-            author = "책 저자",
-            like_number = 225,
-        )
-
-        val testList = BooksClub(listOf(test1, test2, test3, test4, test5))
-        baseViewModelScope.launch {
-            _myFavoriteEvent.value = testList
-        }
     }
 
     override fun onBookSummaryClicked(bookSummaryId: Int) {

@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="6dp"
             app:cardElevation="0dp"
-            onSingleClick="@{()-> eventListener.onBookSummaryClicked(holder.book_club_id)}"
+            onSingleClick="@{()-> eventListener.onBookSummaryClicked(holder.bookId)}"
             android:backgroundTint="@color/blue_50"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
