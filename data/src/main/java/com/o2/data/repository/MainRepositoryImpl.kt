@@ -52,7 +52,7 @@ class MainRepositoryImpl @Inject constructor(
         return handleApi { mainAPIService.getRandomProfileImage().data }
     }
 
-    override suspend fun getMoodImage(): NetworkResult<MoodImageUrl> {
+    override suspend fun getMoodImage(): NetworkResult<MoodImageUrlList> {
         return handleApi { mainAPIService.getMoodImage().data }
     }
 

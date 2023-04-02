@@ -49,7 +49,7 @@ interface MainAPIService {
 
     // 기분 이미지 가져오기
     @GET("/api/v1/asset/mood/image")
-    suspend fun getMoodImage(): BaseResponse<MoodImageUrl>
+    suspend fun getMoodImage(): BaseResponse<MoodImageUrlList>
 
     // 책 생성
     @POST("/api/v1/books/create")

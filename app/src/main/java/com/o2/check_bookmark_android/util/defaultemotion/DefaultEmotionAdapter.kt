@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.o2.check_bookmark_android.R
 import com.o2.check_bookmark_android.databinding.HolderDefaultEmotionBinding
 import com.o2.domain.model.Emotion
+import com.o2.domain.model.MoodImageUrl
 
 var checkedId = 0
 
 class DefaultEmotionAdapter(
     val isCheckedImage: Int,
     private val eventListener: DefaultEmotionActionHandler
-) : ListAdapter<Emotion, DefaultEmotionAdapter.ViewHolder>(DefaultEmotionItemDiffCallback){
+) : ListAdapter<MoodImageUrl, DefaultEmotionAdapter.ViewHolder>(DefaultEmotionItemDiffCallback){
 
     init { setHasStableIds(true) }
 
@@ -40,19 +41,19 @@ class DefaultEmotionAdapter(
     class ViewHolder(private val binding: HolderDefaultEmotionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Emotion) {
+        fun bind(item: MoodImageUrl) {
             binding.holder = item
-            if(item.id == checkedId) {
+            if(0 == checkedId) {
                 binding.isChecked.visibility = View.VISIBLE
             }
         }
     }
 
-    internal object DefaultEmotionItemDiffCallback : DiffUtil.ItemCallback<Emotion>() {
-        override fun areItemsTheSame(oldItem: Emotion, newItem: Emotion) =
-            oldItem.id == newItem.id
+    internal object DefaultEmotionItemDiffCallback : DiffUtil.ItemCallback<MoodImageUrl>() {
+        override fun areItemsTheSame(oldItem: MoodImageUrl, newItem: MoodImageUrl) =
+            oldItem.moodName == newItem.moodName
 
-        override fun areContentsTheSame(oldItem: Emotion, newItem: Emotion) =
+        override fun areContentsTheSame(oldItem: MoodImageUrl, newItem: MoodImageUrl) =
             oldItem == newItem
     }
 }

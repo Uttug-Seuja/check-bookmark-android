@@ -44,7 +44,7 @@ interface MainRepository {
     suspend fun getRandomProfileImage(): NetworkResult<ImageUrl>
 
     // 기분 이미지 가져오기
-    suspend fun getMoodImage(): NetworkResult<MoodImageUrl>
+    suspend fun getMoodImage(): NetworkResult<MoodImageUrlList>
 
     // 책 생성
     suspend fun postBooks(

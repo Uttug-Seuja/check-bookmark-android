@@ -7,7 +7,7 @@
     <data>
         <variable
             name="holder"
-            type="com.o2.domain.model.Emotion" />
+            type="com.o2.domain.model.MoodImageUrl" />
 
         <variable
             name="eventListener"
@@ -18,7 +18,7 @@
         android:layout_width="84dp"
         android:layout_height="84dp"
         android:padding="6dp"
-        android:onClick="@{() -> eventListener.onDefaultEmotionClicked(holder.id)}">
+        android:onClick="@{() -> eventListener.onDefaultEmotionClicked(0)}">
 
         <ImageView
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:glide1000="@{holder.url}">
+            app:glide1000="@{holder.moodImageUrl}">
         </ImageView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
